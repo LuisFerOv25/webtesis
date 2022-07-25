@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="img/">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="col-3">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div style="text-align: center;">
+          <a class="navbar-brand ">Administrador</a>
+        </div>
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" href="InicioAdmi.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="UsuariosAdmin.html">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="DatosAdm.html">Mis datos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="inicio_adm">
+    <div class="card">
+      <h3 class="card-header">MIS DATOS PERSONALES</h3>
+      <div class="card-body">
+
+        <div class="container text-right">
+          <div class="row align-items-start">
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de documento</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Número</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Sexo</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Celular</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Correo electrónico</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Contraseña</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="modificar">
+          <br>
+          <a class="btn btn-danger" href="ModificarDatosAdm.html" role="button">Modificar</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <br><br><br>
+  <div class="footer">
+    <div class="container-fluid bg-dark text-center p-3 text-light">
+      <p class="small">&copy; Todos los derechos reservados. Webtesis</p>
+      <p class="small"> 2022</p>
+    </div>
+  </div>
+</body>
+
+</html>
