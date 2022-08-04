@@ -5,12 +5,14 @@
 	if(!empty($_POST))
 	{
 		$alert='';
-		if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['tipoide']) || empty($_POST['numdoc']) || empty($_POST['sexo']) || empty($_POST['celular']) || empty($_POST['correo']) || empty($_POST['pass']))
+		if(empty( empty($_POST['iddocente']) || empty($_POST['roldocente']) ||empty($_POST['especialidad']) ||$_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['tipoide']) || empty($_POST['numdoc']) || empty($_POST['sexo']) || empty($_POST['celular']) || empty($_POST['correo']) || empty($_POST['pass']))
 		{
 			$alert= '<p class="msg_error">Todos los campos son obligatorios</p>';
 		}else{
 			
-
+			$iddocente= $_POST['iddocente'];
+            $roldocente= $_POST['roldocente'];
+            $especialidad= $_POST['especialidad'];
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
 			$tipoide = $_POST['tipoide'];
@@ -25,12 +27,12 @@
 			   $alert= '<p class="msg_error">La contraseña no coincide</p>';
 			} else {
 
-					if ($_POST['correo'] != $_POST['confcorreo'] ) {
+				if ($_POST['correo'] != $_POST['confcorreo'] ) {
 
 					   $alert= '<p class="msg_error">El correo no coincide</p>';
 					} else {
 
-						$query = mysqli_query($conn,"SELECT correo FROM persona where correo = '$correo'");
+						$query = mysqli_query($conn,"SELECT * FROM persona where correo = '$correo'");
 						$result = mysqli_fetch_array($query);
 						if($result > 0){
 							$alert= '<p class="msg_error">Correo o usuario ya existe</p>';
@@ -39,10 +41,14 @@
 			                
 			               
 			                $query_insert_persona = mysqli_query($conn,"INSERT INTO persona(nombre,apellido,tipoide,numdoc,celular,correo,pass,sexo,idrol)
-							VALUES ('$nombre','$apellido','$tipoide','$numdoc','$celular','$correo','$pass','$sexo',1)");
+							 VALUES ('$nombre','$apellido','$tipoide','$numdoc','$celular','$correo','$pass','$sexo',2)");
 			                
+                            $query_id_persona = mysqli_query($conn,"SELECT MAX(idpersona) AS id FROM persona");
+                            $result3 = mysqli_fetch_array($query_id_persona);
+                            
+                            $query_insert_docente = mysqli_query($conn,"INSERT INTO docente(iddocente,especialidad,roldocente,idpersona) VALUES ($iddocente,'$especialidad','$roldocente',$result3[0])");
 							
-			                if($query_insert_persona){
+			                if($query_insert_docente){
 
 								$alert= '<p class="msg_error">Usuario creado correctamente</p>';
 							}else{
@@ -62,7 +68,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registro de Administradores</title>
+    <title>Registro de Docente</title>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -87,10 +93,48 @@
 				style="width: 850px;">
 				<center>
 
-					<h3>REGISTRO DE ADMINISTRADORES</h3>
+					<h3>REGISTRO DE DOCENTE</h3>
 				</center>
 				<br>
 
+				<div class="row mb-3">
+            <label for="iddocente" class="col-sm-2 col-form-label">Código Docente:</label>
+            <div class="col-md-auto">
+                <input type="number" class="form-control" id="iddocente" name="iddocente">
+                <br>
+            </div>
+        </div>
+
+       
+      
+
+
+        <div class="row mb-3">
+            <label for="roldocente" class="col-sm-2 col-form-label">Rol:</label>
+            <div class="col-sm-auto">
+            
+                <select class="form-select" aria-label="Default select example" id="roldocente" name="roldocente">
+                    <option selected>seleccióne</option>
+                    <option value="Jurado">Jurado</option>
+                    <option value="Asesor">Asesor</option>
+
+                </select>
+                
+                <br>
+            </div>
+
+        </div>
+
+
+        <div class="row mb-3">
+            <label for="especialidad" class="col-sm-2 col-form-label">Especialidad:</label>
+            <div class="col-sm-auto">
+                <input type="text" class="form-control" id="especialidad" name="especialidad">
+                <br>
+
+            </div>
+
+        </div>
 
 
 				<div class="row mb-3">
