@@ -31,8 +31,26 @@
             <div class="row ">
                 <div class="col-12 col-md-10 mx-3">
                     <h2 class="pb-5">Trabajo de Grado</h2>
-                    <p class="fw-bold">Nombre del trabajo: <span class="fw-normal">_______________________</span></p>
-                    <p class="fw-bold">Fecha: <span class="fw-normal">_______________________________________</span></p>
+                    <form action="php/archivo.php" method="post" enctype="multipart/form-data">
+                        <div>
+                            <label class="form-label">Nombre del trabajo: </label>
+                            <input class="form-control" type="text" name="nombre" id="nombre">
+                        </div>
+                        <div>
+                            <label class="form-label">Fecha: </label>
+                            <input class="form-control" type="date" name="fecha" id="fecha">
+                        </div>
+                        <div>
+                            <label class="form-label">Codigo estudiantil: </label>
+                            <input class="form-control mb-3" type="number" name="codigo" id="codigo">
+                        </div>
+                        <div>
+                            <input class="form-control form-control-sm mb-3" type="file" name="tesis" id="tesis">
+                        </div>     
+                        <div>
+                            <input class="btn btn-primary mb-3" type="submit" value="guardar">
+                        </div>                   
+                    </form>
                     
                 </div>
                 <div class="col-12 col-md-1 casa">
