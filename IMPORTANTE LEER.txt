@@ -1,0 +1,1 @@
+Con el archivo index.html inicia el aplicativo (ya se encuentra conectado al login)

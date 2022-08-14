@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-08-2022 a las 00:07:27
+-- Tiempo de generación: 14-08-2022 a las 03:04:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -24,44 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `calificacion`
---
-
-CREATE TABLE `calificacion` (
-  `idcalificacion` int(11) NOT NULL,
-  `estado` varchar(12) NOT NULL,
-  `comentario` varchar(200) NOT NULL,
-  `idTrabajoGrado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `docente`
---
-
-CREATE TABLE `docente` (
-  `iddocente` int(11) NOT NULL,
-  `especialidad` varchar(90) NOT NULL,
-  `roldocente` varchar(45) NOT NULL,
-  `idpersona` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estudiante`
---
-
-CREATE TABLE `estudiante` (
-  `codigoestudiante` int(11) NOT NULL,
-  `semestre` char(2) NOT NULL,
-  `idpersona` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `persona`
 --
 
@@ -78,64 +40,21 @@ CREATE TABLE `persona` (
   `idrol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `rol`
+-- Volcado de datos para la tabla `persona`
 --
 
-CREATE TABLE `rol` (
-  `idrol` int(11) NOT NULL,
-  `rol` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `rol`
---
-
-INSERT INTO `rol` (`idrol`, `rol`) VALUES
-(1, 'Admin'),
-(2, 'Docente'),
-(3, 'Estudiante');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `trabajogrado`
---
-
-CREATE TABLE `trabajogrado` (
-  `idTrabajoGrado` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `fechacar` varchar(45) NOT NULL,
-  `rutaArchivo` varchar(200) NOT NULL,
-  `codigoestudiante` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
+(1, 'mauro', 'lopez', 'CE', '4564657', '343435', 'dgdg@g.com', '1111', 'M', 1),
+(2, 'julian', 'monteros', 'CC', '12123244', '1323244', 'julian34@gmail.com', '1111', 'M', 3),
+(3, 'mauro', 'gomez', 'CC', '35465656', '3214555677', 'mauro345@gmail.com', '1111', 'M', 2),
+(4, 'lucia', 'andrade', 'CC', '5345465', '3454546', 'lucia355@hotmail.com', '1234', 'F', 2),
+(5, 'Fausto', 'Cornelio', 'CC', '3245166765', '3215444322', 'fausto43@g.com', '1111', 'M', 2),
+(6, 'Mario', 'pineda', 'CE', '35546465', '3214566666', 'marioprew3@g.com', '1111', 'M', 2);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `calificacion`
---
-ALTER TABLE `calificacion`
-  ADD PRIMARY KEY (`idcalificacion`),
-  ADD KEY `idTrabajoGrado` (`idTrabajoGrado`);
-
---
--- Indices de la tabla `docente`
---
-ALTER TABLE `docente`
-  ADD PRIMARY KEY (`iddocente`),
-  ADD KEY `idpersona` (`idpersona`);
-
---
--- Indices de la tabla `estudiante`
---
-ALTER TABLE `estudiante`
-  ADD PRIMARY KEY (`codigoestudiante`),
-  ADD KEY `idpersona` (`idpersona`);
 
 --
 -- Indices de la tabla `persona`
@@ -145,73 +64,24 @@ ALTER TABLE `persona`
   ADD KEY `idrol` (`idrol`);
 
 --
--- Indices de la tabla `rol`
---
-ALTER TABLE `rol`
-  ADD PRIMARY KEY (`idrol`);
-
---
--- Indices de la tabla `trabajogrado`
---
-ALTER TABLE `trabajogrado`
-  ADD PRIMARY KEY (`idTrabajoGrado`),
-  ADD KEY `codigoestudiante` (`codigoestudiante`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `calificacion`
---
-ALTER TABLE `calificacion`
-  MODIFY `idcalificacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `trabajogrado`
---
-ALTER TABLE `trabajogrado`
-  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `calificacion`
---
-ALTER TABLE `calificacion`
-  ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`);
-
---
--- Filtros para la tabla `docente`
---
-ALTER TABLE `docente`
-  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`);
-
---
--- Filtros para la tabla `estudiante`
---
-ALTER TABLE `estudiante`
-  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`);
-
---
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
   ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`);
-
---
--- Filtros para la tabla `trabajogrado`
---
-ALTER TABLE `trabajogrado`
-  ADD CONSTRAINT `trabajogrado_ibfk_2` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
