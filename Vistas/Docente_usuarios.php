@@ -34,8 +34,6 @@ include "../complementos/conexion.php";
     <body>
             <div class="container mt-5">
                     <div class="row align-items-center"> 
-                        
-
 
                         <div class="col-md-8">
                             <table class="table" >
@@ -46,6 +44,7 @@ include "../complementos/conexion.php";
                                         <th>Archivo</th>
                                         <th></th>
                                         <th></th>
+
                                     </tr>
                                 </thead>
 
@@ -57,17 +56,26 @@ include "../complementos/conexion.php";
                                                 <th><?php  echo $row['trabajogrado']?></th>
                                                 <th><?php  echo $row['estudiante']?></th>
                                                 <th><?php  echo $row['archivo']?></th>
-                            
+                                                <th></th>
+                                                <th>
+                                                    <div class="center_Boton_Calificacion">
+                                                      <a href="Calificar_Trabajo.html">
+                                                        <button type="button" class="btn btn-danger" href>Evaluar</button>
+                                                    </a>
+                                                  </div>
+
+                                                  </th>
                                             </tr>
                                         <?php 
                                             }
                                         ?>
                                 </tbody>
+                                
                             </table>
 
                         </div>
-
                     </div>  
             </div>
+            
     </body>
 </html>
