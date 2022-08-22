@@ -161,7 +161,14 @@
   position: absolute;
   bottom: 0;
 }
-
+.final_pag_tr_grado {
+  background-color: #171616;
+  color: white;
+  text-align: center;
+  padding: 7px;
+  width: 100%;
+  bottom: 0;
+}
 .img_usr {
   width: 20%;
   height: 20%;

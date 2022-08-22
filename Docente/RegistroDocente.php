@@ -191,7 +191,7 @@ if (!empty($_POST)) {
                     <legend class="col-form-label col-sm-auto pt-0" id="sexo">Sexo</legend>
                     <div class="col-sm-10">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M" checked>
+                        <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M">
                         <label class="form-check-label" for="sexo">
                           Masculino
                         </label>
