@@ -54,13 +54,13 @@ $con2 = conexion();
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="../Admin/InicioAdmi.html">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="UsuariosAdmin.html">Usuarios</a>
+                    <a class="nav-link" href="../Admin/InicioAdmi.html">Usuarios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Mis datos</a>
+                    <a class="nav-link" href="../Admin/DatosAdm.html">Mis datos</a>
                   </li>
                 </ul>
 
@@ -116,8 +116,8 @@ $con2 = conexion();
                 </select>
 
                 <div class="col p-3">
-              <input type="submit" value="Enviar" name="submit" class="btn btn-outline-success">
-            </div>
+                  <input type="submit" value="Enviar" name="submit" class="btn btn-outline-success">
+                </div>
 
               </form>
 
