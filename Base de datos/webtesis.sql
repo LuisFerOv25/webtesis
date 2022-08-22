@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-08-2022 a las 00:48:23
+-- Tiempo de generación: 22-08-2022 a las 08:12:47
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -24,19 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `calificacion`
---
-
-CREATE TABLE `calificacion` (
-  `idcalificacion` int(11) NOT NULL,
-  `estado` varchar(12) NOT NULL,
-  `comentario` varchar(200) NOT NULL,
-  `idTrabajoGrado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `docente`
 --
 
@@ -52,7 +39,27 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`iddocente`, `especialidad`, `idroldoc`, `idpersona`) VALUES
-(345353, 'analizador de sistemas', 1, 10);
+(21765434, 'Analista de redes', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE `estado` (
+  `idestado` int(11) NOT NULL,
+  `estadoTrabajo` varchar(12) NOT NULL,
+  `comentario` varchar(200) NOT NULL,
+  `idTrabajoGrado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`idestado`, `estadoTrabajo`, `comentario`, `idTrabajoGrado`) VALUES
+(1, 'Aprobado', 'Felicitaciones', 1);
 
 -- --------------------------------------------------------
 
@@ -71,8 +78,7 @@ CREATE TABLE `estudiante` (
 --
 
 INSERT INTO `estudiante` (`codigoestudiante`, `semestre`, `idpersona`) VALUES
-(11, '9', 2),
-(223, '8', 6);
+(21876543, '9', 3);
 
 -- --------------------------------------------------------
 
@@ -98,16 +104,9 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
-(1, 'mauro', 'lopez', 'CE', '4564657', '343435', 'dgdg@g.com', '1111', 'M', 1),
-(2, 'julian', 'monteros', 'CC', '12123244', '1323244', 'julian34@gmail.com', '1111', 'M', 3),
-(3, 'mauro', 'gomez', 'CC', '35465656', '3214555677', 'mauro345@gmail.com', '1111', 'M', 2),
-(4, 'lucia', 'andrade', 'CC', '5345465', '3454546', 'lucia355@hotmail.com', '1234', 'F', 2),
-(5, 'Fausto', 'Cornelio', 'CC', '3245166765', '3215444322', 'fausto43@g.com', '1111', 'M', 2),
-(6, 'Mario', 'pineda', 'CE', '35546465', '3214566666', 'marioprew3@g.com', '1111', 'M', 2),
-(7, 'Julio', 'Carmelino', 'CC', '46465656', '3214455555', 'julioc@g.com', '1111', 'M', 2),
-(8, 'Julio', 'Orbes', 'CC', '3546575', '321244555', 'julioor@gmail.com', '1111', 'M', 2),
-(9, 'Julio', 'Cornelio', 'CC', '454657', '3214565778', 'juliocor2@gmail.com', '1111', 'M', 2),
-(10, 'mariano', 'gospel', 'CC', '54545632', '312345656', 'gospel355@g.com', '1111', 'M', 2);
+(1, 'luz Idalia', 'Sanchez', 'CC', '1098765434', '3217654321', 'luzidalia123@hotmail.com', 'Adminluz0123$', 'F', 1),
+(2, 'Favio Fausto', 'Davila', 'CC', '1987654345', '3214567898', 'FavioFausto34@udenar.edu.co', '1234', 'M', 2),
+(3, 'Camila Ordo', 'Goyes', 'CC', '1098765345', '3215678654', 'Camilaordo45@udenar.edu.co', '1234', 'F', 3);
 
 -- --------------------------------------------------------
 
@@ -168,20 +167,11 @@ CREATE TABLE `trabajogrado` (
 --
 
 INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`) VALUES
-(1, 'prueba', '1999-12-11', '../archivoTesis/sprint1.pdf', 11, 4),
-(2, 'Sistema de informacion', '1999-11-09', 'C:/Users/Windows 10/Documents/sprint1.pdf', 11, 10),
-(4, 'sistema de mario', '1999-10-11', '../archivoTesis/reporte2021prueba.php.pdf', 223, 5);
+(1, 'Sistema de información para gestion de la tie', '2022-04-11', '../archivoTesis/sprint1.pdf', 21876543, 2);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `calificacion`
---
-ALTER TABLE `calificacion`
-  ADD PRIMARY KEY (`idcalificacion`),
-  ADD KEY `idTrabajoGrado` (`idTrabajoGrado`);
 
 --
 -- Indices de la tabla `docente`
@@ -189,7 +179,14 @@ ALTER TABLE `calificacion`
 ALTER TABLE `docente`
   ADD PRIMARY KEY (`iddocente`),
   ADD KEY `idpersona` (`idpersona`),
-  ADD KEY `idroldoc` (`idroldoc`);
+  ADD KEY `docente_ibfk_2` (`idroldoc`);
+
+--
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`idestado`),
+  ADD KEY `idTrabajoGrado` (`idTrabajoGrado`);
 
 --
 -- Indices de la tabla `estudiante`
@@ -229,32 +226,26 @@ ALTER TABLE `trabajogrado`
 --
 
 --
--- AUTO_INCREMENT de la tabla `calificacion`
+-- AUTO_INCREMENT de la tabla `estado`
 --
-ALTER TABLE `calificacion`
-  MODIFY `idcalificacion` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `estado`
+  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `calificacion`
---
-ALTER TABLE `calificacion`
-  ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`);
 
 --
 -- Filtros para la tabla `docente`
@@ -262,6 +253,12 @@ ALTER TABLE `calificacion`
 ALTER TABLE `docente`
   ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`),
   ADD CONSTRAINT `docente_ibfk_2` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`);
+
+--
+-- Filtros para la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`);
 
 --
 -- Filtros para la tabla `estudiante`
@@ -279,7 +276,7 @@ ALTER TABLE `persona`
 -- Filtros para la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  ADD CONSTRAINT `trabajogrado_ibfk_2` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`);
+  ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

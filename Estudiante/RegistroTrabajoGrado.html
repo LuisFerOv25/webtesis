@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiante</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./img/fontawesome-free-6.1.1-web/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar fixed-top " style="background-color: #424949; ">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: center;">
+                <a class="navbar-brand text-white">Estudiante</a>
+            </div>
+            <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Estudiante</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="InicioEstu.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="php/TrabajoRegistrado.php">Trabajo registrado</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="MisDatosEst.html">Mis datos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+        <div class="row ">
+            <div class="col-12 col-md-10 mx-3">
+                <center>
+                    <h2 class="pb-5 my-5 py-5">REGISTRO TRABAJO DE GRADO</h2>
+                </center>
+            <div class="container px-4 mx-5">
+
+            
+                <div class="row">
+                    <div class="col py-5">
+                        <div class="mx-5 bg-light" style="border-radius: 2%;">
+
+                            <form action="php/archivo.php" method="post" enctype="multipart/form-data">
+                                <div class="row mb-3">
+									<div class="col mx-5 px-5">
+                                    <div>
+                                        <br>
+                                        <label class="form-label">Nombre del trabajo: </label>
+                                        <input class="form-control" type="text" name="nombre" id="nombre">
+                                    </div>
+                                </div>
+                            
+                
+                                <div class="col mx-5 px-5">
+                                    <div>
+                                        <br>
+                                        <label class="form-label">Fecha: </label>
+                                        <input class="form-control" type="date" name="fecha" id="fecha">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col mx-5 px-5">
+                                    <div>
+                                        <label class="form-label">Codigo estudiantil: </label>
+                                        <input class="form-control mb-3" type="number" name="codigo" id="codigo">
+                                    </div>
+                                </div>
+                                <div class="col mx-5 px-5">
+                                    <div>
+                                        <label class="form-label">Cargue aquí el archivo </label>
+                                        <input class="form-control form-control-sm mb-3" type="file" name="tesis"
+                                            id="tesis">
+                                    </div>
+                                 </div>
+                            </div>
+                                <div class="mx-auto" style="width: 200px;">
+                                    <input class="btn btn-primary mx-auto" style="width: 200px;" type="submit" value="guardar">
+                                </div>
+                                <br>
+                                
+                                <div class="mx-auto" style="width: 85px;">
+                                    <button type="button" class="btn btn-secondary">Volver</button>
+                                </div>
+                                <br>
+                                
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="d-grid justify-content-center"> 
+                <div class="card" style="width: 48rem;">
+                    <div class="card-body">
+                    <p>
+                    La plataforma solo admite archivos en formato pdf, verifique el formato de su archivo antes de subirlo
+                    </p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    
+    <div class="final_pag">
+
+        <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

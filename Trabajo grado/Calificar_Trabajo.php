@@ -45,5 +45,3 @@ include "../complementos/conexion.php";
 							}
       }
    }
-  
-?>
