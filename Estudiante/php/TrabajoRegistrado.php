@@ -1,7 +1,7 @@
 <?php
 
 
-include($_SERVER['DOCUMENT_ROOT'] . '/webtesis/complementos/conexion.php');
+include "../../complementos/conexion.php";
 
 session_start();
 $email = $_SESSION['email'];
