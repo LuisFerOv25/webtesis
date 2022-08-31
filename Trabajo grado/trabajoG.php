@@ -11,6 +11,7 @@ $con2 = conexion();
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Modificar Trabajo Grado</title>
+  <link rel="icon" type="image/x-icon" href="../img/icon.png">
   <link rel="stylesheet" href="../css/style.css">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
@@ -18,7 +19,17 @@ $con2 = conexion();
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
   <script src='main.js'></script>
-
+  <script>
+    function validarInputs() {
+      if (document.getElementById("tipodoc").value == "") {
+        alert("Error, no se ha seleccionado ningun jurado");
+        window.location = 'TrabajoGradoAdmin.php';
+      } else {
+        alert("Archivo enviado correctamente");
+        window.location = 'trabajoG.php';
+      }
+    }
+  </script>
 
   <style>
     body {
@@ -90,38 +101,40 @@ $con2 = conexion();
             </div>
 
             <div class="col-6">
-              <form action="" method="POST">
+              <form action="" method="POST" name="frm">
                 <label for="tipodoc">Asignar jurado</label>
-                <select name="tipodoc" id="tipodoc" class="form-select" aria-label="Default select example" onchange="this.form.submit()">
-                  <option>Selecciona un jurado</option>
-                  <?php
+                <select name="tipodoc" id="tipodoc" class="form-select" aria-label="Default select example" required>
+                  <option value="">Selecciona un jurado</option>
+                  <div class="col-6">
+                    <?php
 
 
-                  $sql = 'SELECT * FROM persona INNER JOIN docente ON persona.idpersona=docente.idpersona
+                    $sql = 'SELECT * FROM persona INNER JOIN docente ON persona.idpersona=docente.idpersona
               INNER JOIN roldocente ON docente.idroldoc= roldocente.idroldoc
               WHERE roldocente.idroldoc = 1';
-                  $query = mysqli_query($con, $sql);
-                  while ($row = mysqli_fetch_array($query)) {
-                    $idpersona = $row['idpersona'];
-                    $nombre = $row['nombre'];
-                    $apellido = $row['apellido'];
-                  ?>
-                    <option value="<?php echo $idpersona ?>"> <?php echo $nombre ?> <?php echo $apellido ?></option>
+                    $query = mysqli_query($con, $sql);
+                    while ($row = mysqli_fetch_array($query)) {
+                      $idpersona = $row['idpersona'];
+                      $nombre = $row['nombre'];
+                      $apellido = $row['apellido'];
+                    ?>
+                      <option value="<?php echo $idpersona ?>"> <?php echo $nombre ?> <?php echo $apellido ?></option>
 
-                  <?php
-                  }
+                    <?php
+                    }
 
 
-                  ?>
+                    ?>
                 </select>
 
                 <div class="col p-3">
-                  <input type="submit" value="Enviar" name="submit" class="btn btn-outline-success">
+                  <input type="submit" value="Enviar" name="submit" class="btn btn-outline-success" onclick="validarInputs()">
                 </div>
 
               </form>
 
               <?php
+
               $id = $_GET['id'];
 
               if (isset($_POST["tipodoc"])) {

@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estudiante</title>
+  <link rel="icon" type="image/x-icon" href="../img/icon.png">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -71,76 +72,70 @@
 
     <div class="registro_trabajo">
       <div class="row order-last>
-        <div class="col py-1">
-          <div class="mx-5 px-5 bg-light " style="border-radius: 2%;">
+        <div class=" col py-1">
+        <div class="mx-5 px-5 bg-light " style="border-radius: 2%;">
 
-            <form action="php/archivo.php" method="post" enctype="multipart/form-data">
-              <div class="row mb-3">
-                <div class="col mx-5 px-5">
-                  <div>
-                    <br>
-                    <label class="form-label">Nombre del trabajo: </label>
-                    <input class="form-control" type="text" name="nombre" id="nombre">
-                  </div>
-                </div>
-
-
-                <div class="col mx-5 px-5">
-                  <div>
-                    <br>
-                    <label class="form-label">Fecha: </label>
-                    <input class="form-control" type="date" name="fecha" id="fecha">
-                  </div>
+          <form action="php/archivo.php" method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+              <div class="col mx-5 px-5">
+                <div>
+                  <br>
+                  <label class="form-label">Nombre del trabajo: </label>
+                  <input class="form-control" type="text" name="nombre" id="nombre">
                 </div>
               </div>
-              <div class="row mb-3">
-                <div class="col mx-5 px-5">
-                  <div>
-                    <label class="form-label">Codigo estudiantil: </label>
-                    <input class="form-control mb-3" type="number" name="codigo" id="codigo">
-                  </div>
-                </div>
-                <div class="col mx-5 px-5">
-                  <div>
-                    <label class="form-label">Cargue aquí el archivo </label>
-                    <input class="form-control form-control-sm mb-3" type="file" name="tesis" id="tesis">
-                  </div>
+
+
+              <div class="col mx-5 px-5">
+                <div>
+                  <br>
+                  <label class="form-label">Fecha de carga: </label>
+                  <input class="form-control" type="date" name="fecha" id="fecha">
                 </div>
               </div>
-              <div class="mx-auto" style="width: 200px;">
-                <input class="btn btn-primary mx-auto" style="width: 200px;" type="submit" value="guardar">
+            </div>
+            <div class="row mb-3">
+              <div class="col mx-5 px-5">
+                <div>
+                  <label class="form-label">Cargue aquí el archivo </label>
+                  <input class="form-control form-control-sm mb-3" type="file" name="tesis" id="tesis">
+                </div>
               </div>
-              <br>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+              <input class="btn btn-primary mx-auto" style="width: 200px;" type="submit" value="guardar">
+            </div>
+            <br>
 
-              <div class="mx-auto" style="width: 85px;">
-                <button type="button" class="btn btn-secondary">Volver</button>
-              </div>
-              <br>
+            <div class="mx-auto" style="width: 85px;">
+              <button type="button" class="btn btn-secondary">Volver</button>
+            </div>
+            <br>
 
-            </form>
-
-          </div>
-
+          </form>
 
         </div>
+
+
       </div>
-      <div class="container">
-        <br>
-        <div class="row">
-          <div class="d-grid justify-content-center">
-            <div class="card" style="width: 48rem;">
-              <div class="card-body">
-                <p>
-                  La plataforma solo admite archivos en formato pdf, verifique el formato de su archivo antes de subirlo
-                </p>
-              </div>
+    </div>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="d-grid justify-content-center">
+          <div class="card" style="width: 48rem;">
+            <div class="card-body">
+              <p>
+                La plataforma solo admite archivos en formato pdf, verifique el formato de su archivo antes de subirlo
+              </p>
             </div>
           </div>
         </div>
-        <br>
       </div>
+      <br>
     </div>
-    
+  </div>
+
   </div>
 
 

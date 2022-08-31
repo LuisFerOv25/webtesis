@@ -3,9 +3,13 @@
 include "../complementos/conexion.php";
 
 if (!empty($_POST)) {
-  $alert = '';
+
   if (empty(empty($_POST['iddocente']) || empty($_POST['roldocente']) || empty($_POST['especialidad']) || $_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['tipoide']) || empty($_POST['numdoc']) || empty($_POST['sexo']) || empty($_POST['celular']) || empty($_POST['correo']) || empty($_POST['pass']) || !isset($_POST['terminos'])) {
-    $alert = '<p class="msg_error">Todos los campos son obligatorios</p>';
+?>
+    <script>
+      alert("Todos los campos son obligatorios")
+    </script>
+    <?php
   } else {
 
     $iddocente = $_POST['iddocente'];
@@ -21,19 +25,29 @@ if (!empty($_POST)) {
     $pass = ($_POST['pass']);
 
     if ($_POST['pass'] != $_POST['confpass']) {
-
-      $alert = '<p class="msg_error">La contraseña no coincide</p>';
+    ?>
+      <script>
+        alert("La contraseña no coincide")
+      </script>
+      <?php
     } else {
 
       if ($_POST['correo'] != $_POST['confcorreo']) {
-
-        $alert = '<p class="msg_error">El correo no coincide</p>';
+      ?>
+        <script>
+          alert("El correo no coincide")
+        </script>
+        <?php
       } else {
 
         $query = mysqli_query(conexion(), "SELECT * FROM persona where correo = '$correo'");
         $result = mysqli_fetch_array($query);
         if ($result > 0) {
-          $alert = '<p class="msg_error">Correo o usuario ya existe</p>';
+        ?>
+          <script>
+            alert("Correo o usuario ya existe")
+          </script>
+          <?php
         } else {
 
 
@@ -47,11 +61,17 @@ if (!empty($_POST)) {
           $query_insert_docente = mysqli_query(conexion(), "INSERT INTO docente(iddocente,especialidad,idroldoc,idpersona) VALUES ($iddocente,'$especialidad','$roldocente',$result3[0])");
 
           if ($query_insert_docente) {
-
-            $alert = '<p class="msg_error">Usuario creado correctamente</p>';
+          ?>
+            <script>
+              alert("Usuario creado correctamente")
+            </script>
+          <?php
           } else {
-
-            $alert = '<p class="msg_error">Error al crear el usuario</p>';
+          ?>
+            <script>
+              alert("Error al crear usuario")
+            </script>
+<?php
           }
         }
       }
@@ -67,6 +87,7 @@ if (!empty($_POST)) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Registro de Docente</title>
+  <link rel="icon" type="image/x-icon" href="../img/icon.png">
   <link rel="stylesheet" href="../css/style.css">
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -105,7 +126,7 @@ if (!empty($_POST)) {
                 <div class="col mx-5 px-5">
                   <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
                   <div class="col-sm-auto">
-                    <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="validationnombre" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="validationnombre">
 
                     <br>
                   </div>
@@ -114,7 +135,7 @@ if (!empty($_POST)) {
                 <div class="col mx-5 px-5">
                   <label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
                   <div class="col-sm-auto">
-                    <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="validationape" required>
+                    <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="validationape">
 
                     <br>
                   </div>
@@ -252,13 +273,6 @@ if (!empty($_POST)) {
                 </div>
               </div>
 
-
-
-              <div class="alert">
-                <?php
-                echo isset($alert) ? $alert : '';
-                ?>
-              </div>
 
               <div class="container fluid">
                 <div class="mx-auto" style="width:300px;">
