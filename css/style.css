@@ -180,3 +180,15 @@
   margin: 10px auto 10px;
   display: block;
 }
+
+.grid_cards_requisitos {
+  width: 70%;
+  margin: auto;
+  padding: 1em;
+  text-align: center;
+}
+
+.img_requisito {
+  margin: 10px auto 10px;
+  display: block;
+}

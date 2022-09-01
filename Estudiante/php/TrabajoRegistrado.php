@@ -55,9 +55,22 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div style="text-align: center;">
-        <a class="navbar-brand text-white">Estudiante</a>
+
+
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Sesión Estudiante
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="../../index.html">Cerrar sesión</a></li>
+        </ul>
       </div>
+
+
+
+
+
       <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Estudiante</h5>
