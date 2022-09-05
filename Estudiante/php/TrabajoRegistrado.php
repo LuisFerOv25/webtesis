@@ -18,7 +18,7 @@ $query_cod_estudiante = mysqli_query($con, "SELECT estudiante.codigoestudiante F
     WHERE estudiante.idpersona = $result[0]");
 $result2 = mysqli_fetch_array($query_cod_estudiante);
 
-$query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,persona.nombre as estudiante, 
+$query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajogrado.nombre as trabajogrado ,persona.nombre as estudiante, 
         trabajogrado.rutaArchivo as archivo FROM trabajogrado JOIN estudiante ON trabajogrado.codigoestudiante=estudiante.codigoestudiante JOIN persona
          ON estudiante.idpersona=persona.idpersona WHERE trabajogrado.codigoestudiante = $result2[0]");
 
@@ -55,22 +55,9 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-
-
-      <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Sesión Estudiante
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="../../index.html">Cerrar sesión</a></li>
-        </ul>
+      <div style="text-align: center;">
+        <a class="navbar-brand text-white">Estudiante</a>
       </div>
-
-
-
-
-
       <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Estudiante</h5>
@@ -78,21 +65,21 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
         </div>
 
         <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active text-white" href="../InicioEstu.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="../RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="TrabajoRegistrado.php">Trabajo registrado</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="../MisDatosEst.html">Mis datos</a>
-            </li>
-          </ul>
-        </div>
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active text-white" href="InicioEstu.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="php/TrabajoRegistrado.php">Trabajo registrado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="../../Estudiante/misdatosest.php">Mis datos</a>
+              </li>
+            </ul>
+          </div>
       </div>
     </div>
   </nav>
@@ -124,13 +111,14 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
               <tbody>
                 <?php
                 while ($row = mysqli_fetch_array($query)) {
+                  $idT = $row['idtr'];
                 ?>
                   <tr>
                     <th><?php echo $row['trabajogrado'] ?></th>
                     <th><?php echo $row['archivo'] ?></th>
                     <th>
                       <div class="center_Boton_Calificacion">
-                        <a href="#">
+                        <a href="../../Trabajo grado/modificar_trab.php?idt=<?php echo $row['idtr'] ?>">
                           <button type="button" class="btn btn-warning" href>Entrar</button>
                         </a>
                       </div>

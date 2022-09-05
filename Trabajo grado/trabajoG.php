@@ -53,18 +53,10 @@ $con2 = conexion();
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
+            <div style="text-align: center;">
 
-
-            <div class="btn-group">
-              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Sesión Administrador
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
-              </ul>
+              <a class="navbar-brand ">Trabajo de grado</a>
             </div>
-
-
             <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
               <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
@@ -173,6 +165,8 @@ $con2 = conexion();
   </div>
 
 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
 </html>

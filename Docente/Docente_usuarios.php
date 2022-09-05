@@ -50,18 +50,9 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Sesión Docente
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
-          </ul>
+        <div style="text-align: center;">
+          <a class="navbar-brand ">Docente</a>
         </div>
-
-
         <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Docente</h5>
@@ -74,7 +65,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
                 <a class="nav-link active" href="Inicio_Docente.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Datos_Docente.html">Mis datos</a>
+                <a class="nav-link" href="perfildocente.php">Mis datos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="Docente_usuarios.php">Proyecto de grado</a>

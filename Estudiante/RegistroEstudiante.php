@@ -110,48 +110,6 @@ if (!empty($_POST)) {
 
 <body>
 
-  <div class="col-3">
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Sesión Administrador
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
-          </ul>
-        </div>
-
-
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link active" href="../Admin/InicioAdmi.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Admin/UsuariosAdmin.html">Usuarios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Admin/DatosAdm.html">Mis datos</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-
   <div class="form_registro">
     <hr>
 
@@ -160,7 +118,7 @@ if (!empty($_POST)) {
 
       <div class="container px-4">
         <center>
-          <br><br>
+
           <h3>REGISTRO DE ESTUDIANTE</h3>
         </center>
         <br>
@@ -233,7 +191,7 @@ if (!empty($_POST)) {
                 <br>
                 <div class="row ">
                   <div class="col mx-5 px-5">
-                    <br>
+
                     <fieldset class="row mb-3">
                       <legend class="col-form-label col-sm-auto pt-0" id="sexo">Sexo</legend>
                       <div class="col-sm-10">
@@ -337,6 +295,8 @@ if (!empty($_POST)) {
   </div>
 
 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </div>
 
 </body>
