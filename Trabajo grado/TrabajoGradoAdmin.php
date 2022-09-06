@@ -82,6 +82,7 @@ include "../complementos/conexion.php";
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre del trabajo de grado</th>
+                <th scope="col">Estado de la propuesta</th>
                 <th scope="col">Modificar</th>
               </tr>
 
@@ -90,7 +91,7 @@ include "../complementos/conexion.php";
 
                 $con = conexion();
 
-                $sql = ("SELECT * FROM trabajogrado");
+                $sql = ("SELECT * FROM trabajogrado JOIN estado ON trabajogrado.idTrabajoGrado=estado.idTrabajoGrado ");
                 $query = mysqli_query($con, $sql);
                 $i = 0;
 
@@ -98,11 +99,13 @@ include "../complementos/conexion.php";
                   $i++;
                   $idTrabajoGrado = $row['idTrabajoGrado'];
                   $nombre = $row['nombre'];
+                  $estado = $row['estadoTrabajo']
 
                 ?>
                   <tr>
                     <td> <?php echo $i; ?></td>
                     <td> <?php echo $nombre; ?></td>
+                    <td> <?php echo $estado; ?></td>
                     <th><a href="trabajoG.php?id=<?php echo $row['idTrabajoGrado'] ?>" class="btn btn-success">Editar</a></th>
                   </tr>
                 <?php
