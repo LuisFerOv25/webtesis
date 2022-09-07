@@ -111,7 +111,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm" name="txtnombre" value="<?php echo $nombre;?>" required>
+                  aria-describedby="inputGroup-sizing-sm" name="txtnombre" value="<?php echo $nombre;?>" required disabled>
               </div>
 
             </div>
@@ -120,7 +120,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm" name="txtapellido" value="<?php echo $apellido;?>" required>
+                  aria-describedby="inputGroup-sizing-sm" name="txtapellido" value="<?php echo $apellido;?>" required disabled>
               </div>
 
             </div>
@@ -131,7 +131,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de documento</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm" name="txttipod" value="<?php echo $tipod;?>" required>
+                  aria-describedby="inputGroup-sizing-sm" name="txttipod" value="<?php echo $tipod;?>" required disabled>
               </div>
 
             </div>
@@ -139,7 +139,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Número</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm" name="txtnumdoc" value="<?php echo $numdoc;?>" required>
+                  aria-describedby="inputGroup-sizing-sm" name="txtnumdoc" value="<?php echo $numdoc;?>" required disabled>
               </div>
 
             </div>
@@ -152,7 +152,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Celular</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm" name="txtcel" value="<?php echo $celular;?>" required>
+                  aria-describedby="inputGroup-sizing-sm" name="txtcel" value="<?php echo $celular;?>" required disabled>
               </div>
 
             </div>
@@ -160,7 +160,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Correo electrónico</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-sm" name="txtcorreo" value="<?php echo $correo;?>" required>
+                  aria-describedby="inputGroup-sizing-sm" name="txtcorreo" value="<?php echo $correo;?>" required disabled>
               </div>
 
             </div>
@@ -171,7 +171,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Codigo estudiantil</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" name="txtcodest" value="<?php echo $codest?>" required>
+                aria-describedby="inputGroup-sizing-sm" name="txtcodest" value="<?php echo $codest?>" required disabled>
             </div>
 
             </div>
@@ -179,7 +179,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Semestre actual</span>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-sm" name="txtsemes" value="<?php echo $semestre;?>" required>
+                aria-describedby="inputGroup-sizing-sm" name="txtsemes" value="<?php echo $semestre;?>" required disabled>
             </div>
 
             </div>

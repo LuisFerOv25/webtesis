@@ -18,7 +18,7 @@ $query_cod_estudiante = mysqli_query($con, "SELECT estudiante.codigoestudiante F
     WHERE estudiante.idpersona = $result[0]");
 $result2 = mysqli_fetch_array($query_cod_estudiante);
 
-$query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajogrado.nombre as trabajogrado ,persona.nombre as estudiante, 
+$query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajogrado.nombre as trabajogrado,trabajogrado.docasig as docentea ,persona.nombre as estudiante, 
         trabajogrado.rutaArchivo as archivo FROM trabajogrado JOIN estudiante ON trabajogrado.codigoestudiante=estudiante.codigoestudiante JOIN persona
          ON estudiante.idpersona=persona.idpersona WHERE trabajogrado.codigoestudiante = $result2[0]");
 
@@ -67,13 +67,13 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active text-white" href="InicioEstu.html">Inicio</a>
+                <a class="nav-link active text-white" href="../InicioEstu.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
+                <a class="nav-link text-white" href="../RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="php/TrabajoRegistrado.php">Trabajo registrado</a>
+                <a class="nav-link text-white" href="../php/TrabajoRegistrado.php">Trabajo registrado</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="../../Estudiante/misdatosest.php">Mis datos</a>
@@ -99,10 +99,10 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
             <table class="table">
               <thead class="table-info table-striped">
                 <tr>
-                  <th>Nombre del proyecto</th>
+                <th>Nombre del proyecto</th>
                   <th>Archivo</th>
+                  <th>Jurado asignado</th>
                   <th>Editar</th>
-                  <th></th>
                   <th></th>
 
                 </tr>
@@ -112,13 +112,28 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                 <?php
                 while ($row = mysqli_fetch_array($query)) {
                   $idT = $row['idtr'];
+                  $docasign = $row['docentea'];
                 ?>
                   <tr>
                     <th><?php echo $row['trabajogrado'] ?></th>
                     <th><?php echo $row['archivo'] ?></th>
+                                        <?php
+                    if(!empty($docasign)){
+                      $query_docentea = mysqli_query(conexion(), "SELECT persona.nombre as nom,persona.apellido as ape FROM persona JOIN docente ON persona.idpersona = docente.idpersona WHERE persona.idpersona = $docasign");
+                      while ($row = mysqli_fetch_array($query_docentea)) {
+                        ?>
+                      <th><?php echo $row['nom'], " ", $row['ape'] ?></th>
+                      <?php
+                      }
+                    }else{
+                      ?>
+                      <th><?php echo "No asignado"?></th>
+                      <?php
+                    }
+                    ?>
                     <th>
                       <div class="center_Boton_Calificacion">
-                        <a href="../../Trabajo grado/modificar_trab.php?idt=<?php echo $row['idtr'] ?>">
+                        <a href="../../Trabajo grado/modificar_trab.php?idt=<?php echo $idT?>">
                           <button type="button" class="btn btn-warning" href>Entrar</button>
                         </a>
                       </div>

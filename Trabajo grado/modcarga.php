@@ -16,25 +16,18 @@
 <body>
 
   <?php
-  include "../../complementos/conexion.php";
+  include ".././complementos/conexion.php";
 
 
-  session_start();
-  $email = $_SESSION['email'];
+
+  $idarch = $_GET['idtra'];
 
   if (!empty($_POST)) {
-    if (empty($_POST['nombre']) || empty($_POST['fecha'])) {
 
   ?>
-      <script>
-        alert('Todos los campos son obligatorios');
-        window.location = '../RegistroTrabajoGrado.html'
-      </script>";
       <?php
-    } else {
+  
 
-      $nombre = $_POST["nombre"];
-      $fecha = $_POST["fecha"];
       $rutaTesis = "";
       $tamanio = 8000;
 
@@ -42,35 +35,29 @@
 
         if ($_FILES['tesis']['size'] < ($tamanio * 1024)) {
 
-          $rutaTesis = "../archivoTesis/" . $_FILES['tesis']['name'];
+          $rutaTesis = "../Estudiante/archivoTesis/" . $_FILES['tesis']['name'];
           if (empty($rutaTesis)) {
       ?>
             <script>
-              alert('Todos los campos son obligatorios');
-              window.location = '../RegistroTrabajoGrado.html'
+              alert('Todos los campos son obligatorios ');
+          
             </script>";
             <?php
           } else {
-            move_uploaded_file($_FILES['tesis']['tmp_name'], '../archivoTesis/' . $_FILES['tesis']['name']);
+            move_uploaded_file($_FILES['tesis']['tmp_name'], '../Estudiante/archivoTesis/' . $_FILES['tesis']['name']);
             echo
             '
                             <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
                                     La tesis se ha guardado correctamente.
-                            <a href="../InicioEstu.html">
+                            <a href="../Estudiante/php/TrabajoRegistrado.php">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </a>
                                     </div>
                             
                             ';
-            $query_val_cod = mysqli_query(conexion(), "SELECT persona.idpersona FROM persona JOIN estudiante 
-                        ON estudiante.idpersona= persona.idpersona WHERE  persona.correo = '$email'");
-            $result = mysqli_fetch_array($query_val_cod);
 
-            $query_val_cod2 = mysqli_query(conexion(), "SELECT estudiante.codigoestudiante FROM estudiante JOIN persona 
-                        ON estudiante.idpersona= persona.idpersona WHERE  persona.idpersona = $result[0]");
-            $result2 = mysqli_fetch_array($query_val_cod2);
+            $SQL = "UPDATE webtesis.trabajogrado SET rutaArchivo='$rutaTesis' WHERE idTrabajoGrado = $idarch";
 
-            $SQL = "UPDATE webtesis.trabajogrado SET $rutaTesis','$result2[0]')";
             $resultado = conexion()->query($SQL);
             if (!$resultado) {
               echo "Error al realizar consulta:" . $conexion->error;
@@ -95,7 +82,7 @@
           echo '
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             Error al subir el documento peso superior al permitido !.
-                            <a href="../subirTrabajodeGrado.html">
+                            <a href="../Estudiante/php/TrabajoRegistrado.phpl">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </a>
                             </div>
@@ -106,14 +93,14 @@
         echo '
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             Archivo no seleccionado o solo se admiten documentos PDF
-                    <a href="../RegistroTrabajoGrado.html">
+                    <a href="../Estudiante/php/TrabajoRegistrado.php">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </a>
                         </div>
                     
                     ';
       }
-    }
+    
   }
   ?>
 

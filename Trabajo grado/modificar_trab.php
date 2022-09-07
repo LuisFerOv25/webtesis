@@ -1,8 +1,8 @@
 <?php
-include"../complementos/conexion.php";
+include "../complementos/conexion.php";
 $con = conexion();
 $idTr = $_GET['idt'];
-
+$idTrab = $idTr;
 $querybuscar = mysqli_query($con, "SELECT * FROM trabajogrado WHERE idTrabajoGrado = $idTr");
 while($mostrar = mysqli_fetch_array($querybuscar))
 {
@@ -64,13 +64,16 @@ while($mostrar = mysqli_fetch_array($querybuscar))
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="Inicio_Docente.html">Inicio</a>
+                <a class="nav-link active text-white" href="../Estudiante/InicioEstu.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="perfildocente.php">Mis datos</a>
+                <a class="nav-link text-white" href="../RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Docente_usuarios.php">Proyecto de grado</a>
+                <a class="nav-link text-white" href="../Estudiante/php/TrabajoRegistrado.php">Trabajo registrado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="../Estudiante/misdatosest.php">Mis datos</a>
               </li>
             </ul>
           </div>
@@ -84,7 +87,7 @@ while($mostrar = mysqli_fetch_array($querybuscar))
     <div class="card">
       <h3 class="card-header text-center">MODIFICAR TRABAJO DE GRADO</h3>
       <div class="card-body">
-        <form action="modcarga.php" method="POST" enctype="multipart/form-data">
+      <form action="modcarga.php?idtra=<?php echo $idTrab?>" method="post" enctype="multipart/form-data">
         <div class="container text-right">
           <div class="row align-items-start">
             <div class="col">
@@ -111,20 +114,22 @@ while($mostrar = mysqli_fetch_array($querybuscar))
           <div class="row align-items-start">
             <div class="col">
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de documento</span>
-                <input type="text" class="form-control" aria-label="Sizing example input"
+                <span class="input-group-text" id="inputGroup-sizing-sm">Ruta del archivo actual</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" disabled
                   aria-describedby="inputGroup-sizing-sm" name="txttipod" value="<?php echo $carga;?>" required>
 
                 
               </div>
-              <input class="form-control form-control-sm mb-3" type="file" name="txttesis" id="tesis">
+              <input class="form-control form-control-sm mb-3" type="file" name="tesis" id="tesis">
             </div>
           </div>
         </div>
 
 
         <div class="modificar">
+          
           <input class="btn btn-success" type="submit" name="btnmodificar" value="Modificar" onClick="javascript: return confirm('¿Deseas modificar a este usuario?');">
+       
           <a class="btn btn-success" href="Inicio_Docente.html" role="button">Atrás</a>
         </div>
         </form>
@@ -145,81 +150,25 @@ while($mostrar = mysqli_fetch_array($querybuscar))
 {    
   $nombre2 = $_POST['txtnombre'];
   $fechac2 = $_POST['txtfecha'];
-  $tesis2 = $_POST['txttesis'];
-  $rutaTesis = "";
-  $tamanio = 8000;
-
-  if (isset($_FILES['tesis']) && $_FILES['tesis']['type'] == 'application/pdf') {
-
-    if ($_FILES['tesis']['size'] < ($tamanio * 1024)) {
-
-      $rutaTesis = "../Estudiante/archivoTesis/" . $_FILES['tesis']['name'];
-      if (empty($rutaTesis)) {
-  ?>
-        <script>
-          alert('Todos los campos son obligatorios');
-          window.location = '../modificar_trab.php'
-        </script>";
-        <?php
-      } else {
-        move_uploaded_file($_FILES['tesis']['tmp_name'], '../archivoTesis/' . $_FILES['tesis']['name']);
-        echo
-        '
-                        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                                La tesis se ha guardado correctamente.
-                        <a href="../InicioEstu.html">
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </a>
-                                </div>
-                        
-                        ';
 
     
-    $SQL = mysqli_query(conexion(), "UPDATE trabajogrado SET nombre='$nombre2',fechacar='$fechac2 WHERE idTrabajoGrado=$idTr");
+    $SQL = mysqli_query(conexion(), "UPDATE trabajogrado SET nombre='$nombre2',fechacar='$fechac2' WHERE idTrabajoGrado=$idTr");
  
-
-    $resultado = conexion()->query($SQL);
-    if (!$resultado) {
-      echo "Error al realizar consulta:" . $conexion->error;
-    }
-    if ($SQL) {
-
-    ?>
-      <script>
-        alert("Trabajo de grado Modificado correctamente")
-      </script>
-    <?php
-    } else {
-
-    ?>
-      <script>
-        alert("Error al registrar trabajo de grado")
-      </script>
+if($SQL){
+  ?>
+  <script>
+  alert("Datos modificados");
+</script>
 <?php
-    }
-  }
-} else {
-  echo '
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Error al subir el documento peso superior al permitido !.
-                    <a href="../subirTrabajodeGrado.html">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </a>
-                    </div>
-                
-                ';
+
+}else{
+  ?>
+  <script>
+  alert("Datos NO modificados");
+</script>
+<?php
 }
-} else if (isset($_FILES['tesis']) && $_FILES['tesis']['type'] != 'application/pdf') {
-echo '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Archivo no seleccionado o solo se admiten documentos PDF
-            <a href="../RegistroTrabajoGrado.html">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </a>
-                </div>
-            
-            ';
-}
+echo "<script>window.location= '../Estudiante/php/TrabajoRegistrado.php' </script>";
 }
 
     
