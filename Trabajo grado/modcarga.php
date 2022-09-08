@@ -21,7 +21,7 @@
 
 
   $idarch = $_GET['idtra'];
-
+  $contmod =0;
   if (!empty($_POST)) {
 
   ?>
@@ -45,16 +45,17 @@
             <?php
           } else {
             move_uploaded_file($_FILES['tesis']['tmp_name'], '../Estudiante/archivoTesis/' . $_FILES['tesis']['name']);
-            echo
-            '
-                            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                                    La tesis se ha guardado correctamente.
-                            <a href="../Estudiante/php/TrabajoRegistrado.php">
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </a>
-                                    </div>
-                            
-                            ';
+      
+                            $conmod = mysqli_query(conexion(), "SELECT numedit FROM trabajogrado WHERE idTrabajoGrado = $idarch");
+                            $resultmod = mysqli_fetch_array($conmod);
+                            if($resultmod[0] > 3){
+                              ?>
+                              <script>
+                              alert("Ya no puede modificar mas el proyecto");
+                            </script>
+                            <script>window.location= '../Estudiante/php/TrabajoRegistrado.php' </script>
+                            <?php
+                            }else{
 
             $SQL = "UPDATE webtesis.trabajogrado SET rutaArchivo='$rutaTesis' WHERE idTrabajoGrado = $idarch";
 
@@ -63,26 +64,32 @@
               echo "Error al realizar consulta:" . $conexion->error;
             }
             if ($SQL) {
+             
+              $SQL2 = "UPDATE webtesis.trabajogrado SET numedit=numedit+1 WHERE idTrabajoGrado = $idarch";
+              $resultado2 = conexion()->query($SQL2);
 
             ?>
               <script>
-                alert("Trabajo de grado registrado correctamente")
+                alert("Trabajo de grado registrado correctamente");
               </script>
+                <script>window.location= '../Estudiante/php/TrabajoRegistrado.php' </script>
             <?php
+              
             } else {
 
             ?>
               <script>
-                alert("Error al registrar trabajo de grado")
+                alert("Error al registrar trabajo de grado");
               </script>
   <?php
             }
+          }
           }
         } else {
           echo '
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             Error al subir el documento peso superior al permitido !.
-                            <a href="../Estudiante/php/TrabajoRegistrado.phpl">
+                            <a href="../Estudiante/php/TrabajoRegistrado.php">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </a>
                             </div>
