@@ -70,7 +70,7 @@
                         ON estudiante.idpersona= persona.idpersona WHERE  persona.idpersona = $result[0]");
             $result2 = mysqli_fetch_array($query_val_cod2);
 
-            $SQL = "INSERT INTO webtesis.trabajogrado(nombre, fechacar, rutaArchivo, codigoestudiante) VALUES ('$nombre', '$fecha','$rutaTesis','$result2[0]')";
+            $SQL = "INSERT INTO webtesis.trabajogrado(nombre, fechacar, rutaArchivo, codigoestudiante,numedit) VALUES ('$nombre', '$fecha','$rutaTesis','$result2[0]',1)";
 
             $resultado = conexion()->query($SQL);
             if (!$resultado) {

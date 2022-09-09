@@ -21,41 +21,43 @@
 
 
   $idarch = $_GET['idtra'];
-  $contmod =0;
+  $contmod = 0;
   if (!empty($_POST)) {
 
   ?>
-      <?php
-  
+    <?php
 
-      $rutaTesis = "";
-      $tamanio = 8000;
 
-      if (isset($_FILES['tesis']) && $_FILES['tesis']['type'] == 'application/pdf') {
+    $rutaTesis = "";
+    $tamanio = 8000;
 
-        if ($_FILES['tesis']['size'] < ($tamanio * 1024)) {
+    if (isset($_FILES['tesis']) && $_FILES['tesis']['type'] == 'application/pdf') {
 
-          $rutaTesis = "../Estudiante/archivoTesis/" . $_FILES['tesis']['name'];
-          if (empty($rutaTesis)) {
-      ?>
+      if ($_FILES['tesis']['size'] < ($tamanio * 1024)) {
+
+        $rutaTesis = "../Estudiante/archivoTesis/" . $_FILES['tesis']['name'];
+        if (empty($rutaTesis)) {
+    ?>
+          <script>
+            alert('Todos los campos son obligatorios ');
+          </script>";
+          <?php
+        } else {
+          move_uploaded_file($_FILES['tesis']['tmp_name'], '../Estudiante/archivoTesis/' . $_FILES['tesis']['name']);
+
+          $conmod = mysqli_query(conexion(), "SELECT numedit FROM trabajogrado WHERE idTrabajoGrado = $idarch");
+          $resultmod = mysqli_fetch_array($conmod);
+          echo ($resultmod[0]);
+          if ($resultmod[0] > 2) {
+          ?>
             <script>
-              alert('Todos los campos son obligatorios ');
-          
-            </script>";
+              alert("Ya no puede modificar mas el proyecto");
+            </script>
+            <script>
+              window.location = '../Estudiante/php/TrabajoRegistrado.php'
+            </script>
             <?php
           } else {
-            move_uploaded_file($_FILES['tesis']['tmp_name'], '../Estudiante/archivoTesis/' . $_FILES['tesis']['name']);
-      
-                            $conmod = mysqli_query(conexion(), "SELECT numedit FROM trabajogrado WHERE idTrabajoGrado = $idarch");
-                            $resultmod = mysqli_fetch_array($conmod);
-                            if($resultmod[0] > 3){
-                              ?>
-                              <script>
-                              alert("Ya no puede modificar mas el proyecto");
-                            </script>
-                            <script>window.location= '../Estudiante/php/TrabajoRegistrado.php' </script>
-                            <?php
-                            }else{
 
             $SQL = "UPDATE webtesis.trabajogrado SET rutaArchivo='$rutaTesis' WHERE idTrabajoGrado = $idarch";
 
@@ -64,7 +66,7 @@
               echo "Error al realizar consulta:" . $conexion->error;
             }
             if ($SQL) {
-             
+
               $SQL2 = "UPDATE webtesis.trabajogrado SET numedit=numedit+1 WHERE idTrabajoGrado = $idarch";
               $resultado2 = conexion()->query($SQL2);
 
@@ -72,9 +74,11 @@
               <script>
                 alert("Trabajo de grado registrado correctamente");
               </script>
-                <script>window.location= '../Estudiante/php/TrabajoRegistrado.php' </script>
+              <script>
+                window.location = '../Estudiante/php/TrabajoRegistrado.php'
+              </script>
             <?php
-              
+
             } else {
 
             ?>
@@ -84,9 +88,9 @@
   <?php
             }
           }
-          }
-        } else {
-          echo '
+        }
+      } else {
+        echo '
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             Error al subir el documento peso superior al permitido !.
                             <a href="../Estudiante/php/TrabajoRegistrado.php">
@@ -95,9 +99,9 @@
                             </div>
                         
                         ';
-        }
-      } else if (isset($_FILES['tesis']) && $_FILES['tesis']['type'] != 'application/pdf') {
-        echo '
+      }
+    } else if (isset($_FILES['tesis']) && $_FILES['tesis']['type'] != 'application/pdf') {
+      echo '
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             Archivo no seleccionado o solo se admiten documentos PDF
                     <a href="../Estudiante/php/TrabajoRegistrado.php">
@@ -106,8 +110,7 @@
                         </div>
                     
                     ';
-      }
-    
+    }
   }
   ?>
 
