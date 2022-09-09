@@ -118,8 +118,8 @@ $con2 = conexion();
 
 
                     $sql = 'SELECT * FROM persona INNER JOIN docente ON persona.idpersona=docente.idpersona
-              INNER JOIN roldocente ON docente.idroldoc= roldocente.idroldoc
-              WHERE roldocente.idroldoc = 1';
+                    INNER JOIN roldocente ON docente.idroldoc= roldocente.idroldoc
+                    WHERE roldocente.idroldoc = 1';
                     $query = mysqli_query($con, $sql);
                     while ($row = mysqli_fetch_array($query)) {
                       $idpersona = $row['idpersona'];

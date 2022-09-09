@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2022 a las 08:12:47
+-- Tiempo de generación: 08-09-2022 a las 22:03:15
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -39,7 +39,7 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`iddocente`, `especialidad`, `idroldoc`, `idpersona`) VALUES
-(21765434, 'Analista de redes', 1, 2);
+(21765434, 'Analista de redes', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -104,8 +104,8 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
-(1, 'luz Idalia', 'Sanchez', 'CC', '1098765434', '3217654321', 'luzidalia123@hotmail.com', 'Adminluz0123$', 'F', 1),
-(2, 'Favio Fausto', 'Davila', 'CC', '1987654345', '3214567898', 'FavioFausto34@udenar.edu.co', '1234', 'M', 2),
+(1, 'luz Idalia', 'Sanchez', 'CC', '1098765434', '3217654321', 'luzidalia123@hotmail.com', '1234', 'F', 1),
+(2, 'Fabio Fausto', 'Davila', 'CC', '1987654345', '3214567898', 'FavioFausto34@udenar.edu.co', '1234', 'M', 2),
 (3, 'Camila Ordo', 'Goyes', 'CC', '1098765345', '3215678654', 'Camilaordo45@udenar.edu.co', '1234', 'F', 3);
 
 -- --------------------------------------------------------
@@ -159,15 +159,16 @@ CREATE TABLE `trabajogrado` (
   `fechacar` varchar(45) NOT NULL,
   `rutaArchivo` varchar(200) NOT NULL,
   `codigoestudiante` int(11) NOT NULL,
-  `docasig` int(11) DEFAULT NULL
+  `docasig` int(11) DEFAULT NULL,
+  `numedit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `trabajogrado`
 --
 
-INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`) VALUES
-(1, 'Sistema de información para gestion de la tie', '2022-04-11', '../archivoTesis/sprint1.pdf', 21876543, 2);
+INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`, `numedit`) VALUES
+(1, 'Sistema de información para gestion de la tie', '2022-04-11', '../archivoTesis/sprint1.pdf', 21876543, 2, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -276,7 +277,7 @@ ALTER TABLE `persona`
 -- Filtros para la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`);
+  ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
