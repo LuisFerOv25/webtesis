@@ -18,7 +18,7 @@ $query_cod_estudiante = mysqli_query($con, "SELECT estudiante.codigoestudiante F
     WHERE estudiante.idpersona = $result[0]");
 $result2 = mysqli_fetch_array($query_cod_estudiante);
 
-$query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,persona.nombre as estudiante, 
+$query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajogrado.nombre as trabajogrado,trabajogrado.docasig as docentea ,persona.nombre as estudiante, 
         trabajogrado.rutaArchivo as archivo FROM trabajogrado JOIN estudiante ON trabajogrado.codigoestudiante=estudiante.codigoestudiante JOIN persona
          ON estudiante.idpersona=persona.idpersona WHERE trabajogrado.codigoestudiante = $result2[0]");
 
@@ -38,6 +38,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="./img/fontawesome-free-6.1.1-web/css/all.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -57,7 +58,6 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
       </button>
 
 
-
       <div class="btn-group">
         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Sesión Estudiante
@@ -66,10 +66,6 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
           <li><a class="dropdown-item" href="../../index.html">Cerrar sesión</a></li>
         </ul>
       </div>
-
-
-
-
 
       <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
@@ -86,10 +82,10 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
               <a class="nav-link text-white" href="../RegistroTrabajoGrado.html">Registro Trabajo de grado</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="TrabajoRegistrado.php">Trabajo registrado</a>
+              <a class="nav-link text-white" href="../php/TrabajoRegistrado.php">Trabajo registrado</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="../MisDatosEst.html">Mis datos</a>
+              <a class="nav-link text-white" href="../../Estudiante/misdatosest.php">Mis datos</a>
             </li>
           </ul>
         </div>
@@ -97,55 +93,65 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
     </div>
   </nav>
 
-  <div class="container ">
-    <div class="row ">
-      <div class="col col-md-10 text-center">
-
-        <h2 class=" my-5 py-5">TRABAJO DE GRADO REGISTRADO</h2>
-      </div>
-      <div class="col col-md-10 text-center">
-
+  <div class="inicio_adm">
+    <div class="card">
+      <h3 class="card-header text-center">REGISTRO TRABAJO DE GRADO</h3>
+      <div class="card-body">
 
 
         <div class="row d-flex justify-content-center">
-          <div class="col-md-8">
-            <table class="table">
-              <thead class="table-info table-striped">
+
+          <table class="table table-bordered">
+            <thead class="">
+              <tr>
+                <th>Nombre del proyecto</th>
+                <th>Archivo</th>
+                <th>Jurado asignado</th>
+                <th>Editar</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <?php
+              while ($row = mysqli_fetch_array($query)) {
+                $idT = $row['idtr'];
+                $docasign = $row['docentea'];
+              ?>
                 <tr>
-                  <th>Nombre del proyecto</th>
-                  <th>Archivo</th>
-                  <th>Editar</th>
-                  <th></th>
-                  <th></th>
+                  <th><?php echo $row['trabajogrado'] ?></th>
+                  <th><?php echo $row['archivo'] ?></th>
+                  <?php
+                  if (!empty($docasign)) {
+                    $query_docentea = mysqli_query(conexion(), "SELECT persona.nombre as nom,persona.apellido as ape FROM persona JOIN docente ON persona.idpersona = docente.idpersona WHERE persona.idpersona = $docasign");
+                    while ($row = mysqli_fetch_array($query_docentea)) {
+                  ?>
+                      <th><?php echo $row['nom'], " ", $row['ape'] ?></th>
+                    <?php
+                    }
+                  } else {
+                    ?>
+                    <th><?php echo "No asignado" ?></th>
+                  <?php
+                  }
+                  ?>
+                  <th>
+                    <div class=" center_Boton_Calificacion">
+                      <a href="../../Trabajo grado/modificar_trab.php?idt=<?php echo $idT ?>">
+                        <button type="button" class="btn btn-success" href>Entrar</button>
+                      </a>
+                    </div>
 
+                  </th>
                 </tr>
-              </thead>
+              <?php
+              }
+              ?>
+            </tbody>
 
-              <tbody>
-                <?php
-                while ($row = mysqli_fetch_array($query)) {
-                ?>
-                  <tr>
-                    <th><?php echo $row['trabajogrado'] ?></th>
-                    <th><?php echo $row['archivo'] ?></th>
-                    <th>
-                      <div class="center_Boton_Calificacion">
-                        <a href="#">
-                          <button type="button" class="btn btn-warning" href>Entrar</button>
-                        </a>
-                      </div>
+          </table>
 
-                    </th>
-                  </tr>
-                <?php
-                }
-                ?>
-              </tbody>
-
-            </table>
-
-          </div>
         </div>
+
       </div>
     </div>
     <br>
@@ -158,7 +164,6 @@ $query = mysqli_query($con2, "SELECT trabajogrado.nombre as trabajogrado ,person
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
 

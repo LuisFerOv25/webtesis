@@ -111,12 +111,12 @@ if (!empty($_POST)) {
 <body>
 
   <div class="col-3">
+
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-
 
         <div class="btn-group">
           <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -137,33 +137,30 @@ if (!empty($_POST)) {
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="../Admin/InicioAdmi.html">Inicio</a>
+                <a class="nav-link active text-white" href="../Admin/InicioAdmi.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Admin/UsuariosAdmin.html">Usuarios</a>
+                <a class="nav-link text-white" href="../Admin/UsuariosAdmin.html">Usuarios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Admin/DatosAdm.html">Mis datos</a>
+                <a class="nav-link text-white" href="../Admin/misdatos.php">Mis datos</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
+
   </div>
+
 
   <div class="form_registro">
     <hr>
-
-
     <form action="" method="post">
 
       <div class="container px-4">
-        <center>
-          <br><br>
-          <h3>REGISTRO DE ESTUDIANTE</h3>
-        </center>
-        <br>
+        <br><br>
+        <h3 align="center">REGISTRO DE ESTUDIANTE</h3>
         <div class="row">
           <div class="col py-5">
             <div class="mx-5 bg-light" style="border-radius: 2%;">
@@ -233,7 +230,7 @@ if (!empty($_POST)) {
                 <br>
                 <div class="row ">
                   <div class="col mx-5 px-5">
-                    <br>
+
                     <fieldset class="row mb-3">
                       <legend class="col-form-label col-sm-auto pt-0" id="sexo">Sexo</legend>
                       <div class="col-sm-10">
@@ -335,7 +332,6 @@ if (!empty($_POST)) {
       <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
     </div>
   </div>
-
 
   </div>
 

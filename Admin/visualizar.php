@@ -48,6 +48,7 @@ include "../complementos/conexion.php";
               </ul>
             </div>
 
+
             <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
               <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
@@ -56,16 +57,15 @@ include "../complementos/conexion.php";
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../Admin/InicioAdmi.html">Inicio</a>
+                    <a class="nav-link active text-white" href="InicioAdmi.html">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Admin/UsuariosAdmin.html">Usuarios</a>
+                    <a class="nav-link text-white" href="UsuariosAdmin.html">Usuarios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Admin/misdatos.php">Mis datos</a>
+                    <a class="nav-link text-white" href="misdatos.php">Mis datos</a>
                   </li>
                 </ul>
-
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ include "../complementos/conexion.php";
 
     <div class="center_Calificación">
       <div class="card">
-        <h3 class="card-header text-center">Trabajos de grado calificados</h3>
+        <h3 class="card-header">Administradores registrados</h3>
         <div class="card-body">
 
           <div class="row mx-5">
@@ -87,8 +87,9 @@ include "../complementos/conexion.php";
             <table class="table table-bordered">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nombre del trabajo de grado</th>
-                <th scope="col">Estado de la propuesta</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Modificar</th>
               </tr>
 
               <tbody class="table-group-divider">
@@ -96,21 +97,22 @@ include "../complementos/conexion.php";
 
                 $con = conexion();
 
-                $sql = ("SELECT * FROM trabajogrado JOIN estado ON trabajogrado.idTrabajoGrado=estado.idTrabajoGrado ");
+                $sql = ("SELECT * FROM persona WHERE idrol=1");
                 $query = mysqli_query($con, $sql);
                 $i = 0;
 
                 while ($row = mysqli_fetch_array($query)) {
                   $i++;
-                  $idTrabajoGrado = $row['idTrabajoGrado'];
+                  $idTrabajoGrado = $row['idpersona'];
                   $nombre = $row['nombre'];
-                  $estado = $row['estadoTrabajo']
+                  $apellido = $row['apellido'];
 
                 ?>
                   <tr>
                     <td> <?php echo $i; ?></td>
                     <td> <?php echo $nombre; ?></td>
-                    <td> <?php echo $estado; ?></td>
+                    <td> <?php echo $apellido; ?></td>
+                    <th><a href="perfiladmin.php?id=<?php echo $row['idpersona'] ?>" class="btn btn-success">Editar</a></th>
                   </tr>
                 <?php
 
@@ -148,6 +150,7 @@ include "../complementos/conexion.php";
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
+
 </body>
 
 </html>

@@ -89,14 +89,14 @@ WHERE (estadoTrabajo = 'Aprobado') AND (docasig = $result2[0])");
                 <a class="nav-link active" href="./Docente/Inicio_Docente.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./Docente/Datos_Docente.html">Mis datos</a>
+                <a class="nav-link" href="./Docente/perfildocente.php">Mis datos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./Docente/Docente_usuarios.php">Proyecto de grado</a>
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="EstadoAprobacionEst.php">Estado de aprobación estudiantes</a>
+                <a class="nav-link" href="./EstadoAprobacionEst.php">Estado de aprobación estudiantes</a>
               </li>
             </ul>
           </div>
@@ -172,6 +172,12 @@ WHERE (estadoTrabajo = 'Aprobado') AND (docasig = $result2[0])");
     </div>
 
   </form>
+
+  <div class="final_pag">
+
+    <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
+
+  </div>
 
 </body>
 

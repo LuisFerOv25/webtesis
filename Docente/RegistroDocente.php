@@ -191,10 +191,9 @@ if (!empty($_POST)) {
   <div class="form_registro">
     <hr>
     <div class="container px-4">
-      <center>
-        <br><br>
-        <h3>REGISTRO DE DOCENTE</h3>
-      </center>
+      <br><br>
+      <h3 align="center">REGISTRO DE DOCENTE</h3>
+
       <div class="row">
         <div class="col py-5">
           <div class="mx-5 bg-light" style="border-radius: 2%;">

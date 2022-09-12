@@ -1,8 +1,7 @@
 <?php
 
 include "../complementos/conexion.php";
-$con = conexion();
-$con2 = conexion();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +9,7 @@ $con2 = conexion();
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Modificar Trabajo Grado</title>
+  <title>Trabajo de grado</title>
   <link rel="icon" type="image/x-icon" href="../img/icon.png">
   <link rel="stylesheet" href="../css/style.css">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -19,17 +18,6 @@ $con2 = conexion();
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
   <script src='main.js'></script>
-  <script>
-    function validarInputs() {
-      if (document.getElementById("tipodoc").value == "") {
-        alert("Error, no se ha seleccionado ningun jurado");
-        window.location = 'listar_todos_trabajos.php';
-      } else {
-        alert("Archivo enviado correctamente");
-        window.location = 'listar_todos_trabajos.php';
-      }
-    }
-  </script>
 
   <style>
     body {
@@ -38,22 +26,18 @@ $con2 = conexion();
     }
   </style>
 
-
 </head>
 
 <body>
 
-
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-
       <div class="col ">
         <nav class="navbar navbar-dark bg-dark fixed-top">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
-
 
             <div class="btn-group">
               <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,10 +60,10 @@ $con2 = conexion();
                     <a class="nav-link active" aria-current="page" href="../Admin/InicioAdmi.html">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Admin/UsuariosAdmin.html">Usuarios</a>
+                    <a class="nav-link" href="../Admin/InicioAdmi.html">Usuarios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Admin/misdatos.php">Mis datos</a>
+                    <a class="nav-link" href="../Admin/DatosAdm.html">Mis datos</a>
                   </li>
                 </ul>
 
@@ -89,81 +73,73 @@ $con2 = conexion();
         </nav>
       </div>
     </div>
-
   </div>
 
-  <div class="centrar_envio">
-    <div class="card">
-      <h3 class="card-header">Editar/Enviar trabajo de grado</h3>
-      <div class="card-body">
 
-        <form action="" method="post">
-          <div class="row align-items-start px-5 mx-5">
+  <form method="post" action="Calificar_Trabajo.php">
 
-            <div class="col-6">
-              <label>Nombre del trabajo</label>
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">📜</span>
-                <input type="text" class="form-control" placeholder="Modificar" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-            </div>
+    <div class="center_Calificación">
+      <div class="card">
+        <h3 class="card-header text-center">Trabajos de grado registrados</h3>
+        <div class="card-body">
 
-            <div class="col-6">
-              <form action="" method="POST" name="frm">
-                <label for="tipodoc">Asignar jurado</label>
-                <select name="tipodoc" id="tipodoc" class="form-select" aria-label="Default select example" required>
-                  <option value="">Selecciona un jurado</option>
-                  <div class="col-6">
-                    <?php
+          <div class="row mx-5">
 
+            <table class="table table-bordered">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre del trabajo de grado</th>
+                <th scope="col">Modificar</th>
+              </tr>
 
-                    $sql = 'SELECT * FROM persona INNER JOIN docente ON persona.idpersona=docente.idpersona
-                    INNER JOIN roldocente ON docente.idroldoc= roldocente.idroldoc
-                    WHERE roldocente.idroldoc = 1';
-                    $query = mysqli_query($con, $sql);
-                    while ($row = mysqli_fetch_array($query)) {
-                      $idpersona = $row['idpersona'];
-                      $nombre = $row['nombre'];
-                      $apellido = $row['apellido'];
-                    ?>
-                      <option value="<?php echo $idpersona ?>"> <?php echo $nombre ?> <?php echo $apellido ?></option>
+              <tbody class="table-group-divider">
+                <?php
 
-                    <?php
-                    }
+                $con = conexion();
 
+                $sql = ("SELECT * FROM trabajogrado");
+                $query = mysqli_query($con, $sql);
+                $i = 0;
 
-                    ?>
-                </select>
+                while ($row = mysqli_fetch_array($query)) {
+                  $i++;
+                  $idTrabajoGrado = $row['idTrabajoGrado'];
+                  $nombre = $row['nombre'];
+                ?>
+                  <tr>
+                    <td> <?php echo $i; ?></td>
+                    <td> <?php echo $nombre; ?></td>
+                    <th><a href="trabajoG.php?id=<?php echo $row['idTrabajoGrado'] ?>" class="btn btn-success">Editar</a></th>
+                  </tr>
+                <?php
 
-                <div class="col p-3">
-                  <input type="submit" value="Enviar" name="submit" class="btn btn-outline-success" onclick="validarInputs()">
-                </div>
+                }
 
-              </form>
-
-              <?php
-
-              $id = $_GET['id'];
-
-              if (isset($_POST["tipodoc"])) {
-                $tipodoc = $_POST["tipodoc"];
-
-                $sql2 = "UPDATE trabajogrado SET docasig = $tipodoc WHERE idTrabajoGrado = $id ";
-                $query2 = mysqli_query($con2, $sql2);
-              }
-              ?>
-
-            </div>
-
-
+                ?>
+            </table>
 
           </div>
+
+
+
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link">Anterior</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
       </div>
-
     </div>
-  </div>
   </form>
-
 
 
   <div class="final_pag">
@@ -171,7 +147,6 @@ $con2 = conexion();
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
-
 
 </body>
 

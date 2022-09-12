@@ -1,12 +1,12 @@
 <?php
 include "../complementos/conexion.php";
 
-$ID_TRABAJOG = $_GET['idTrabajo'];
+$ID_TRABAJOG = $_GET["idTrabajo"];
 
 if (!empty($_POST)) {
 
   if (empty($_POST['estado_propuesta']) || empty($_POST['txt_retroalimentacion'])) {
-    echo "<script> alert('TODOS LOS CAMPOS SON OBLIGATORIOS');window.location= 'Calificar_Trabajo.php' </script>";
+    echo "<script> alert('TODOS LOS CAMPOS SON OBLIGATORIOS');window.location= '../Docente/Docente_usuarios.php' </script>";
   } else {
     $ESTPROP = $_POST['estado_propuesta'];
     $RETROPROP = $_POST['txt_retroalimentacion'];
@@ -17,9 +17,9 @@ if (!empty($_POST)) {
 
 
     if ($insertar_estado) {
-      echo "<script> alert('CALIFICACIÓN EXITOSA'); window.location = 'Calificar_Trabajo.php' </script>";
+      echo "<script> alert('CALIFICACIÓN EXITOSA'); window.location = '../Docente/Docente_usuarios.php' </script>";
     } else {
-      echo "<script> alert('ERROR AL CALIFICAR'); window.location = 'Calificar_Trabajo.php' </script>";
+      echo "<script> alert('ERROR AL CALIFICAR'); window.location = '../Docente/Docente_usuarios.php' </script>";
     }
   }
 }
@@ -82,7 +82,7 @@ if (!empty($_POST)) {
                 <a class="nav-link active" href="../Docente/Inicio_Docente.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Docente/Datos_Docente.html">Mis datos</a>
+                <a class="nav-link" href="../Docente/perfildocente.php">Mis datos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../Docente/Docente_usuarios.php">Proyecto de grado</a>
@@ -129,13 +129,13 @@ if (!empty($_POST)) {
       <div class="center_Boton_Calificacion">
 
         <input class="btn btn-success" type="submit" value="Enviar">
-
+        <br>
       </div>
 
-      <br>
-
     </div>
+
   </div>
+
   </form>
 
   <div class="final_pag">

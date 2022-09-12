@@ -12,7 +12,9 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="./img/fontawesome-free-6.1.1-web/css/all.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
   <style>
     body {
       background-image: url(../img/font.png);
@@ -21,7 +23,6 @@
   </style>
 
 </head>
-
 
 <body>
 
@@ -32,7 +33,6 @@
         aria-controls="offcanvasDarkNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-
 
       <div class="btn-group">
         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +63,7 @@
               <a class="nav-link text-white" href="php/TrabajoRegistrado.php">Trabajo registrado</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="MisDatosEst.html">Mis datos</a>
+              <a class="nav-link text-white" href="../Estudiante/misdatosest.php">Mis datos</a>
             </li>
           </ul>
         </div>
@@ -73,79 +73,52 @@
 
 
 
-  <div class="col-12 col-md-10 mx-3">
-    <center>
-      <h2 class="pb-3 my-5 py-5">REGISTRO TRABAJO DE GRADO</h2>
-    </center>
+  <div class="inicio_adm">
+    <div class="card">
+      <h3 class="card-header text-center">REGISTRO TRABAJO DE GRADO</h3>
+      <div class="card-body">
 
-    <div class="registro_trabajo">
-      <div class="row order-last>
-        <div class=" col py-1">
-        <div class="mx-5 px-5 bg-light " style="border-radius: 2%;">
-
-          <form action="php/archivo.php" method="post" enctype="multipart/form-data">
-            <div class="row mb-3">
-              <div class="col mx-5 px-5">
-                <div>
-                  <br>
-                  <label class="form-label">Nombre del trabajo: </label>
-                  <input class="form-control" type="text" name="nombre" id="nombre">
-                </div>
-              </div>
-
-
-              <div class="col mx-5 px-5">
-                <div>
-                  <br>
-                  <label class="form-label">Fecha de carga: </label>
-                  <input class="form-control" type="date" name="fecha" id="fecha">
-                </div>
+        <form action="php/archivo.php" method="post" enctype="multipart/form-data">
+          <div class="row mb-3">
+            <div class="col mx-5 px-5">
+              <div>
+                <br>
+                <label class="form-label">Nombre del trabajo: </label>
+                <input class="form-control" type="text" name="nombre" id="nombre">
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="col mx-5 px-5">
-                <div>
-                  <label class="form-label">Cargue aquí el archivo </label>
-                  <input class="form-control form-control-sm mb-3" type="file" name="tesis" id="tesis">
-                </div>
+
+
+            <div class="col mx-5 px-5">
+              <div>
+                <br>
+                <label class="form-label">Fecha de carga: </label>
+                <input class="form-control" type="date" name="fecha" id="fecha">
               </div>
-            </div>
-            <div class="mx-auto" style="width: 200px;">
-              <input class="btn btn-primary mx-auto" style="width: 200px;" type="submit" value="guardar">
-            </div>
-            <br>
-
-            <div class="mx-auto" style="width: 85px;">
-              <button type="button" class="btn btn-secondary">Volver</button>
-            </div>
-            <br>
-
-          </form>
-
-        </div>
-
-
-      </div>
-    </div>
-    <div class="container">
-      <br>
-      <div class="row">
-        <div class="d-grid justify-content-center">
-          <div class="card" style="width: 48rem;">
-            <div class="card-body">
-              <p>
-                La plataforma solo admite archivos en formato pdf, verifique el formato de su archivo antes de subirlo
-              </p>
             </div>
           </div>
-        </div>
+          <div class="row mb-3">
+            <div class="col mx-5 px-5">
+              <div>
+                <label class="form-label">Cargue aquí el archivo </label>
+                <input class="form-control form-control-sm mb-3" type="file" name="tesis" id="tesis">
+                <p>*La plataforma solo admite archivos en formato pdf, verifique el formato de su archivo antes de
+                  subirlo
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mx-auto" style="width: 200px;">
+            <br>
+            <input class="btn btn-success mx-auto" type="submit" value="guardar">
+            <a class="btn btn-success" href="InicioEstu.html" role="button">Atrás</a>
+          </div>
+          <br>
+        </form>
       </div>
-      <br>
     </div>
   </div>
-
   </div>
-
 
 
 
@@ -154,9 +127,7 @@
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
+
 </body>
 
 

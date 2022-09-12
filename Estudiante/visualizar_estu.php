@@ -30,56 +30,56 @@ include "../complementos/conexion.php";
 
 <body>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col ">
-        <nav class="navbar navbar-dark bg-dark fixed-top">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+  <div class="col-3">
 
-            <div class="btn-group">
-              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Sesión Administrador
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
-              </ul>
-            </div>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../Admin/InicioAdmi.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../Admin/UsuariosAdmin.html">Usuarios</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../Admin/misdatos.php">Mis datos</a>
-                  </li>
-                </ul>
+        <div class="btn-group">
+          <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Sesión Administrador
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
+          </ul>
+        </div>
 
-              </div>
-            </div>
+
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-        </nav>
+
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active text-white" href="../Admin/InicioAdmi.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="../Admin/UsuariosAdmin.html">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="../Admin/misdatos.php">Mis datos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
+
   </div>
+
 
 
   <form method="post" action="Calificar_Trabajo.php">
 
     <div class="center_Calificación">
       <div class="card">
-        <h3 class="card-header text-center">Trabajos de grado calificados</h3>
+        <h3 class="card-header">Estudiantes registrados</h3>
         <div class="card-body">
 
           <div class="row mx-5">
@@ -87,8 +87,9 @@ include "../complementos/conexion.php";
             <table class="table table-bordered">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nombre del trabajo de grado</th>
-                <th scope="col">Estado de la propuesta</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Modificar</th>
               </tr>
 
               <tbody class="table-group-divider">
@@ -96,21 +97,22 @@ include "../complementos/conexion.php";
 
                 $con = conexion();
 
-                $sql = ("SELECT * FROM trabajogrado JOIN estado ON trabajogrado.idTrabajoGrado=estado.idTrabajoGrado ");
+                $sql = ("SELECT * FROM persona WHERE idrol=3");
                 $query = mysqli_query($con, $sql);
                 $i = 0;
 
                 while ($row = mysqli_fetch_array($query)) {
                   $i++;
-                  $idTrabajoGrado = $row['idTrabajoGrado'];
+                  $idTrabajoGrado = $row['idpersona'];
                   $nombre = $row['nombre'];
-                  $estado = $row['estadoTrabajo']
+                  $apellido = $row['apellido'];
 
                 ?>
                   <tr>
                     <td> <?php echo $i; ?></td>
                     <td> <?php echo $nombre; ?></td>
-                    <td> <?php echo $estado; ?></td>
+                    <td> <?php echo $apellido; ?></td>
+                    <th><a href="perfilestu.php?id=<?php echo $row['idpersona'] ?>" class="btn btn-success">Editar</a></th>
                   </tr>
                 <?php
 
@@ -148,6 +150,7 @@ include "../complementos/conexion.php";
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
+
 </body>
 
 </html>

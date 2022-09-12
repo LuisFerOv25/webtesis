@@ -101,13 +101,15 @@ if (!empty($_POST)) {
 </head>
 
 <body>
+
+
   <div class="col-3">
+
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-
 
         <div class="btn-group">
           <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -128,29 +130,27 @@ if (!empty($_POST)) {
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="InicioAdmi.html">Inicio</a>
+                <a class="nav-link active text-white" href="InicioAdmi.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="UsuariosAdmin.html">Usuarios</a>
+                <a class="nav-link text-white" href="UsuariosAdmin.html">Usuarios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="DatosAdm.html">Mis datos</a>
+                <a class="nav-link text-white" href="misdatos.php">Mis datos</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
+
   </div>
 
-
   <div class="form_registro">
-    <hr>
+    <hr><br><br>
     <div class="container px-4">
-      <center>
-        <br><br>
-        <h3>REGISTRO DE ADMINISTRADORES</h3>
-      </center>
+
+      <h3 align="center">REGISTRO DE ADMINISTRADORES</h3>
       <div class="row">
         <div class="col py-5">
           <div class="mx-5 bg-light " style="border-radius: 2%; ">
@@ -160,7 +160,6 @@ if (!empty($_POST)) {
                   <label for="validationnombre" class="col-sm-2 col-form-label">Nombre</label>
                   <div class="col-sm-auto">
                     <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="validationnombre">
-                    <br>
                   </div>
                 </div>
                 <div class="col mx-5 px-5">
@@ -171,7 +170,6 @@ if (!empty($_POST)) {
                   </div>
                 </div>
               </div>
-
 
               <div class="row">
                 <div class="col mx-5 px-5">
@@ -188,7 +186,6 @@ if (!empty($_POST)) {
                   </select>
                 </div>
 
-
                 <div class="col mx-5 px-5">
                   <label for="numdoc" class="form-label">Número:</label>
                   <input type="numer" class="form-control" placeholder="Número de identificación" aria-label="inputtipoIDA" id="numdoc" name="numdoc">
@@ -198,7 +195,7 @@ if (!empty($_POST)) {
               <div class="row">
                 <div class="col mx-5 px-5">
                   <fieldset class="row mb-3 ">
-                    <br>
+
                     <label for="sexo" class="form-label">Sexo</label>
                     <div class="col-sm-10">
                       <div class="form-check">
@@ -264,8 +261,9 @@ if (!empty($_POST)) {
                   </div>
                 </div>
               </div>
-              <br>
+
               <div class="container fluid">
+                <br>
                 <div class="mx-auto" style="width:300px;">
                   <p style="color:black;padding-left:20px;"> <input style="opacity:1;" type="checkbox" data-required="1" name="terminos"> Aceptar los <a style="color:blue;" href="#">Términos y Condiciones</a>
 
@@ -277,29 +275,19 @@ if (!empty($_POST)) {
                   <input class="btn btn-success" type="submit" value="Registrarme">
                   <button type="button" class="btn btn-secondary">Volver</button>
                 </div>
-                <br>
-
-
               </div>
               <br>
             </form>
           </div>
-          <br>
-
         </div>
       </div>
     </div>
   </div>
 
-
-
   <div class="footer">
     <div class="container-fluid bg-dark text-center p-2 text-light">
       <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
     </div>
-  </div>
-
-
   </div>
 
 </body>

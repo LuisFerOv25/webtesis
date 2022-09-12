@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-09-2022 a las 22:03:15
+-- Tiempo de generación: 11-09-2022 a las 07:01:12
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -34,13 +34,6 @@ CREATE TABLE `docente` (
   `idpersona` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `docente`
---
-
-INSERT INTO `docente` (`iddocente`, `especialidad`, `idroldoc`, `idpersona`) VALUES
-(21765434, 'Analista de redes', 2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -54,13 +47,6 @@ CREATE TABLE `estado` (
   `idTrabajoGrado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `estado`
---
-
-INSERT INTO `estado` (`idestado`, `estadoTrabajo`, `comentario`, `idTrabajoGrado`) VALUES
-(1, 'Aprobado', 'Felicitaciones', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -72,13 +58,6 @@ CREATE TABLE `estudiante` (
   `semestre` char(2) NOT NULL,
   `idpersona` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `estudiante`
---
-
-INSERT INTO `estudiante` (`codigoestudiante`, `semestre`, `idpersona`) VALUES
-(21876543, '9', 3);
 
 -- --------------------------------------------------------
 
@@ -98,15 +77,6 @@ CREATE TABLE `persona` (
   `sexo` char(2) NOT NULL,
   `idrol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `persona`
---
-
-INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
-(1, 'luz Idalia', 'Sanchez', 'CC', '1098765434', '3217654321', 'luzidalia123@hotmail.com', '1234', 'F', 1),
-(2, 'Fabio Fausto', 'Davila', 'CC', '1987654345', '3214567898', 'FavioFausto34@udenar.edu.co', '1234', 'M', 2),
-(3, 'Camila Ordo', 'Goyes', 'CC', '1098765345', '3215678654', 'Camilaordo45@udenar.edu.co', '1234', 'F', 3);
 
 -- --------------------------------------------------------
 
@@ -162,13 +132,6 @@ CREATE TABLE `trabajogrado` (
   `docasig` int(11) DEFAULT NULL,
   `numedit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `trabajogrado`
---
-
-INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`, `numedit`) VALUES
-(1, 'Sistema de información para gestion de la tie', '2022-04-11', '../archivoTesis/sprint1.pdf', 21876543, 2, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -230,19 +193,19 @@ ALTER TABLE `trabajogrado`
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
