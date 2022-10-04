@@ -113,6 +113,7 @@ $query = mysqli_query($con2, "SELECT
               <th>Nombre del proyecto</th>
               <th>Nombre del estudiante</th>
               <th>Archivo</th>
+              <th>Tiempo restante para calificarlo</th>
               <th>Evalución</th>
             </tr>
 
@@ -127,7 +128,13 @@ $query = mysqli_query($con2, "SELECT
                   <th><?php echo $row['trabajogrado'] ?></th>
                   <th><?php echo $row['estudiante'] ?></th>
                   <th><?php echo $row['archivo'] ?></th>
-
+                  <th>
+                    <div class="center_Boton_Calificacion">
+                      <a href="visualizar_tiemdoc.php">
+                        <button type="button" class="btn btn-warning" href>Ver tiempo</button>
+                      </a>
+                    </div>
+                  </th>
                   <th>
                     <div class="center_Boton_Calificacion">
                       <a href="../Trabajo grado/Calificar_Trabajo.php?idTrabajo=<?php echo $idT ?>">
