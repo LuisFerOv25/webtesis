@@ -28,16 +28,16 @@ if (isset($_POST['btnmodificar'])) {
   if ($querymodificar) {
 ?>
 
-    <script>
-      alert("Datos modificados exitosamente")
-    </script>
-  <?php
+<script>
+alert("Datos modificados exitosamente")
+</script>
+<?php
   } else {
   ?>
 
-    <script>
-      alert("Error al modificar los datos")
-    </script>
+<script>
+alert("Error al modificar los datos")
+</script>
 <?php
   }
 
@@ -57,15 +57,20 @@ if (isset($_POST['btnmodificar'])) {
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/x-icon" href="img/">
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
 
   <style>
-    body {
-      background-image: url(../img/font.png);
-      background-size: cover;
-    }
+  body {
+    background-image: url(../img/font.png);
+    background-size: cover;
+  }
   </style>
 
 </head>
@@ -75,7 +80,8 @@ if (isset($_POST['btnmodificar'])) {
   <div class="col-3">
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -91,10 +97,12 @@ if (isset($_POST['btnmodificar'])) {
 
 
 
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
           </div>
 
           <div class="offcanvas-body">
@@ -128,7 +136,8 @@ if (isset($_POST['btnmodificar'])) {
               <form method="POST">
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="txtnombre" value="<?php echo $nombre; ?>" required>
+                  <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" name="txtnombre" value="<?php echo $nombre; ?>" required>
                 </div>
 
             </div>
@@ -136,7 +145,8 @@ if (isset($_POST['btnmodificar'])) {
 
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="txtapellido" value="<?php echo $apellido; ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm" name="txtapellido" value="<?php echo $apellido; ?>" required>
               </div>
 
             </div>
@@ -146,14 +156,16 @@ if (isset($_POST['btnmodificar'])) {
             <div class="col">
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Tipo de documento</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="txttipod" value="<?php echo $tipod; ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm" name="txttipod" value="<?php echo $tipod; ?>" required>
               </div>
 
             </div>
             <div class="col">
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Número</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="txtnumdoc" value="<?php echo $numdoc; ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm" name="txtnumdoc" value="<?php echo $numdoc; ?>" required>
               </div>
 
             </div>
@@ -165,21 +177,24 @@ if (isset($_POST['btnmodificar'])) {
             <div class="col">
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Celular</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="txtcel" value="<?php echo $celular; ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm" name="txtcel" value="<?php echo $celular; ?>" required>
               </div>
 
             </div>
             <div class="col">
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Correo electrónico</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="txtcorreo" value="<?php echo $correo; ?>" required>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm" name="txtcorreo" value="<?php echo $correo; ?>" required>
               </div>
 
             </div>
           </div>
         </div>
         <div class="modificar">
-          <input class="btn btn-success" type="submit" name="btnmodificar" value="Modificar" onClick="javascript: return confirm('¿Deseas modificar a este usuario?');">
+          <input class="btn btn-success" type="submit" name="btnmodificar" value="Modificar"
+            onClick="javascript: return confirm('¿Deseas modificar a este usuario?');">
           <a class="btn btn-success" href="visualizar.php" role="button">Atrás</a>
         </div>
         </form>

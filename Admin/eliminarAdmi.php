@@ -98,7 +98,7 @@ include "../complementos/conexion.php";
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
-                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
               </tr>
 
               <tbody class="table-group-divider">
@@ -106,7 +106,7 @@ include "../complementos/conexion.php";
 
                 $con = conexion();
 
-                $sql = ("SELECT * FROM persona where idrol = 1");
+                $sql = ("SELECT * FROM persona where idrol=1");// whre id rol =1 
                 $query = mysqli_query($con, $sql);
                 $i = 0;
 
@@ -121,7 +121,8 @@ include "../complementos/conexion.php";
                   <td> <?php echo $i; ?></td>
                   <td> <?php echo $nombre; ?></td>
                   <td> <?php echo $apellido; ?></td>
-                  <th><a href="perfiladmin.php?id=<?php echo $row['idpersona'] ?>" class="btn btn-success">Editar</a>
+                  <th><a href="eliminacionCompletaA.php?id=<?php echo $row['idpersona'] ?>"
+                      class="eliminar">Eliminar</a>
                   </th>
                 </tr>
                 <?php
@@ -160,6 +161,8 @@ include "../complementos/conexion.php";
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
+  <script src="confirmacion.js"></script>
+
 
 </body>
 
