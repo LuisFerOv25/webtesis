@@ -122,6 +122,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                 <tr>
                   <th><?php echo $row['trabajogrado'] ?></th>
                   <th><?php echo $row['archivo'] ?></th>
+                  <th></th>
                   <?php
                   if (!empty($docasign)) {
                     $query_docentea = mysqli_query(conexion(), "SELECT persona.nombre as nom,persona.apellido as ape FROM persona JOIN docente ON persona.idpersona = docente.idpersona WHERE persona.idpersona = $docasign");
@@ -136,11 +137,40 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                   <?php
                   }
                   ?>
+                  
                   <th>
-                  <a href="../visualizar_tiemest.php">
-                        <button type="button" class="btn btn-warning" href>Ver tiempo</button>
-                  </a>
-                </th>
+                    <a href="../visualizar_tiemest.php">
+                      <button type="button" class="btn btn-warning" href>Ver tiempo</button>
+                    </a>
+                  </th>
+
+
+                  <th>
+                    <?php
+
+
+                    $estado_apr = mysqli_query(conexion(), "SELECT trabajogrado.nombre as trabajogrado, 
+                  persona.nombre as estudiante_nom,
+                  persona.apellido as estudiante_ape,
+                  estado.estadoTrabajo as estado_trabajo FROM trabajogrado 
+                  JOIN estudiante ON trabajogrado.codigoestudiante = estudiante.codigoestudiante 
+                  JOIN estado ON trabajogrado.idTrabajoGrado = estado.idTrabajoGrado
+                  JOIN persona ON estudiante.idpersona = persona.idpersona 
+                  WHERE persona.idpersona = $result[0]");
+
+
+                    $row_res = mysqli_fetch_array($estado_apr)
+                    ?>
+
+                    <?php echo $row_res['estado_trabajo'] ?>
+
+                    <?php
+                    ?>
+                  </th>
+
+
+
+
                   <th>
                     <div class=" center_Boton_Calificacion">
                       <a href="../../Trabajo grado/modificar_trab.php?idt=<?php echo $idT ?>">
