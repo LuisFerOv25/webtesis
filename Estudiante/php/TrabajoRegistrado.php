@@ -108,6 +108,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                 <th>Archivo</th>
                 <th>Jurado asignado</th>
                 <th>Tiempo restante para calificarlo</th>
+                <th>Estado</th>
                 <th>Editar</th>
               </tr>
             </thead>
