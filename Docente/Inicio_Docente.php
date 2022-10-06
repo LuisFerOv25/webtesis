@@ -1,24 +1,41 @@
+
+<?php
+include "../complementos/conexion.php";
+session_start();
+$email = $_SESSION['email'];
+$con = conexion();
+
+$iddoc = mysqli_query($con, "SELECT persona.idpersona FROM persona
+    WHERE persona.correo = '$email'");
+$IdeDoc = mysqli_fetch_array($iddoc);
+
+$query_doc = mysqli_query($con, "SELECT * FROM persona JOIN docente ON persona.idpersona=docente.idpersona WHERE docente.idpersona=$IdeDoc[0]");
+while ($mostrar = mysqli_fetch_array($query_doc)) {
+  $nombre = $mostrar['nombre'];
+  $apellido = $mostrar['apellido'];
+}
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio Administrador</title>
+
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Inicio Docente</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/x-icon" href="../img/icon.png">
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src='main.js'></script>
 
   <style>
     body {
@@ -33,17 +50,18 @@
 <body>
 
   <div class="col-3">
-
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
+
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
           aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="btn-group">
           <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Sesión Administrador
+            Sesión Docente
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
@@ -54,7 +72,7 @@
         <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
           aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Docente</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
               aria-label="Close"></button>
           </div>
@@ -62,37 +80,39 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active text-white" href="InicioAdmi.html">Inicio</a>
+                <a class="nav-link active" href="Inicio_Docente.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="UsuariosAdmin.html">Usuarios</a>
+                <a class="nav-link" href="perfildocente.php">Mis datos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="misdatos.php">Mis datos</a>
+                <a class="nav-link" href="Docente_usuarios.php">Proyecto de grado</a>
+              </li>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../EstadoAprobacionEst.php">Estado de aprobación estudiantes</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
-
   </div>
 
 
-  <div class="inicio_adm">
+  <div class="inicio_doc">
 
     <div class="text-center">
       <img src="../img/usuario.png" class="img_usr" alt="img perfil docente">
     </div>
     <br>
-
     <div class="card">
-      <h3 class="card-header">BIENVENID@</h3>
+      <h3 class="card-header text-center">Bienvenid@ <?php echo "$nombre"; ?> <?php echo "$apellido"; ?></h3>
       <div class="card-body">
         <h5 class="card-title">Información</h5>
-        <p class="card-text">Usted ha ingresado exitosamente al apartado del administrador,
-          en este modulo posee control total para la gestion de usuarios tales como docentes, estudiantes
-          y administradores, asi como la gestion del trabajo de grado registrado por el estudiante.</p>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque a itaque esse sit expedita
+          eius quos impedit commodi modi natus labore perferendis possimus, voluptatibus explicabo praesentium deleniti
+          assumenda! Sit, totam?</p>
       </div>
     </div>
   </div>
@@ -103,6 +123,8 @@
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
+
+
 </body>
 
 </html>
