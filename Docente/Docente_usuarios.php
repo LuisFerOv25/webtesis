@@ -34,15 +34,20 @@ $query = mysqli_query($con2, "SELECT
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/x-icon" href="../img/icon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
   <script src='main.js'></script>
   <style>
-    body {
-      background-image: url(../img/font.png);
-      background-size: cover;
-    }
+  body {
+    background-image: url(../img/font.png);
+    background-size: cover;
+  }
   </style>
 
 </head>
@@ -53,7 +58,8 @@ $query = mysqli_query($con2, "SELECT
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -68,10 +74,12 @@ $query = mysqli_query($con2, "SELECT
         </div>
 
 
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Docente</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
           </div>
 
           <div class="offcanvas-body">
@@ -125,35 +133,35 @@ $query = mysqli_query($con2, "SELECT
                 $idT = $row['id_TrabajoGrado'];
 
               ?>
-                <tr>
-                  <th><?php echo $row['trabajogrado'] ?></th>
-                  <th><?php echo $row['estudiante'] ?></th>
-                  <th><?php echo $row['archivo'] ?></th>
+              <tr>
+                <th><?php echo $row['trabajogrado'] ?></th>
+                <th><?php echo $row['estudiante'] ?></th>
+                <th><?php echo $row['archivo'] ?></th>
 
 
-                  <th>
-                    <div class="center_Boton_Calificacion">
-                      <a href="EstudiantesAsig.php?idTrabajo=<?php echo $idT ?>">
-                        <button type="button" class="btn btn-success" href>Más</button>
-                    </div>
-                  </th>
+                <th>
+                  <div class="center_Boton_Calificacion">
+                    <a href="EstudiantesAsig.php?idTrabajo=<?php echo $idT ?>">
+                      <button type="button" class="btn btn-success" href>Más</button>
+                  </div>
+                </th>
 
 
-                  <th>
-                    <div class="center_Boton_Calificacion">
-                      <a href="visualizar_tiemdoc.php">
-                        <button type="button" class="btn btn-warning" href>Ver tiempo</button>
-                      </a>
-                    </div>
-                  </th>
-                  <th>
-                    <div class="center_Boton_Calificacion">
-                      <a href="../Trabajo grado/Calificar_Trabajo.php?idTrabajo=<?php echo $idT ?>">
-                        <button type="button" class="btn btn-success" href>Evaluar</button>
-                      </a>
-                    </div>
-                  </th>
-                </tr>
+                <th>
+                  <div class="center_Boton_Calificacion">
+                    <a href="visualizar_tiemdoc.php">
+                      <button type="button" class="btn btn-warning" href>Ver tiempo</button>
+                    </a>
+                  </div>
+                </th>
+                <th>
+                  <div class="center_Boton_Calificacion">
+                    <a href="../Trabajo grado/Calificar_Trabajo.php?idTrabajo=<?php echo $idT ?>">
+                      <button type="button" class="btn btn-success" href>Evaluar</button>
+                    </a>
+                  </div>
+                </th>
+              </tr>
 
               <?php
               }

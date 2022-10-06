@@ -99,7 +99,6 @@ include "../complementos/conexion.php";
                 <th scope="col">Apellido</th>
                 <th scope="col">Eliminar</th>
               </tr>
-
               <tbody class="table-group-divider">
                 <?php
 
@@ -143,7 +142,7 @@ include "../complementos/conexion.php";
               <li class="page-item"><a class="page-link" href="#">2</a></li>
               <li class="page-item"><a class="page-link" href="#">3</a></li>
               <li class="page-item">
-                <a class="page-link" href="#">Siguiente</a>
+                <a class="page-link" href="#">Siguiente </a>
               </li>
             </ul>
           </nav>
