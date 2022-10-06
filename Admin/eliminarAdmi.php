@@ -66,7 +66,7 @@ include "../complementos/conexion.php";
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active text-white" href="InicioAdmi.php">Inicio</a>
+                    <a class="nav-link active text-white" href="InicioAdmi.html">Inicio</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-white" href="UsuariosAdmin.html">Usuarios</a>

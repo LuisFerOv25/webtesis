@@ -77,7 +77,7 @@ $query = mysqli_query($con2, "SELECT
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="Inicio_Docente.php">Inicio</a>
+                <a class="nav-link active" href="Inicio_Docente.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="perfildocente.php">Mis datos</a>

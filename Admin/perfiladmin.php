@@ -108,7 +108,7 @@ alert("Error al modificar los datos")
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="InicioAdmi.php">Inicio</a>
+                <a class="nav-link active" href="InicioAdmi.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="UsuariosAdmin.html">Usuarios</a>

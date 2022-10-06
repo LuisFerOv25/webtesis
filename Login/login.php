@@ -1,6 +1,7 @@
 <!--PHP CODING-->
 <?php
 
+
 include "../complementos/conexion.php";
 
 session_start();
@@ -18,13 +19,13 @@ if ($filas) {
 
   if ($ROL == "1") {
     $_SESSION["email"] = $email;
-    header("Location: ./../Admin/InicioAdmi.php");
+    header("Location: ./../Admin/InicioAdmi.html");
   } else if ($ROL == "2") {
     $_SESSION["email"] = $email;
-    header("Location: ../Docente/Inicio_Docente.php");
+    header("Location: ../Docente/Inicio_Docente.html");
   } else if ($ROL == "3") {
     $_SESSION["email"] = $email;
-    header("Location: ../Estudiante/InicioEstu.php");
+    header("Location: ../Estudiante/InicioEstu.html");
   }
 } else {
 
