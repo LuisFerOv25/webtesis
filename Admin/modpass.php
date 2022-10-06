@@ -21,10 +21,18 @@ alert("Campos vacios");
   } else {
     if ($_POST['passn'] != $_POST['passr']) {
 
+
+
+      echo '
+      <div class="row align-self-center">
+      <div class="text-center position-center" style="display: grid; position: absolute; top:32rem;">
+      <div class="alert alert-danger" role="alert">
+      La contraseña no coincide en los campos, vuelve a intentarlo
+      </div>
+      </div>
+      </div>';
+      
     ?>
-<script>
-alert("La contraseña no coincide en los campos, vuelve a intentarlo");
-</script>
 <?php
     } else {
 
@@ -39,11 +47,18 @@ alert("La contraseña no coincide en los campos, vuelve a intentarlo");
 
           $querymodificarc = mysqli_query(conexion(), "UPDATE persona SET pass='$cpass' WHERE idpersona=$ideper");
           if ($querymodificarc) {
+
+            echo '
+            <div class="row align-self-center">
+            <div class="text-center position-center" style="display: grid; position: absolute; top:32rem;">
+            <div class="alert alert-success" role="alert">
+            Contraseña cambiada satisfactoriamente
+            </div>
+            </div>
+            </div>';
       ?>
 
-<script>
-alert("Contraseña cambiada exitosamente")
-</script>
+
 <?php
           } else {
           ?>
@@ -101,9 +116,9 @@ alert("Contraseña incorrecta, vuelve a intentarlo");
 
 <body>
 
-  <div class="col-3">
+  <div class="col-3" >
     <nav class="navbar navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" >
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
           aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>

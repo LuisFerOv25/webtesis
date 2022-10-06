@@ -18,10 +18,16 @@ if (!empty($_POST)) {
 
     if ($_POST['passn'] != $_POST['passr']) {
 
+      echo '
+      <div class="row align-self-center">
+      <div class="text-center position-center" style="display: grid; position: absolute; top:36rem;">
+      <div class="alert alert-danger" role="alert">
+      La contraseña no coincide en los campos, vuelve a intentarlo
+      </div>
+      </div>
+      </div>';
     ?>
-      <script>
-        alert("La contraseña no coincide en los campos, vuelve a intentarlo");
-      </script>
+ 
       <?php
     } else {
 
@@ -54,10 +60,17 @@ if (!empty($_POST)) {
           echo "<script>window.location= '../Estudiante/visualizar_estu.php' </script>";
         }
       } else {
+
+        echo '
+        <div class="row align-self-center">
+        <div class="text-center position-center" style="display: grid; position: absolute; top:36rem;">
+        <div class="alert alert-warning" role="alert">
+        Contraseña incorrecta, vuelve a intentarlo
+        </div>
+        </div>
+        </div>';
         ?>
-        <script>
-          alert("Contraseña incorrecta, vuelve a intentarlo");
-        </script>
+  
 <?php
 
       }

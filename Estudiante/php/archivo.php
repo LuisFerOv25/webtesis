@@ -56,7 +56,7 @@
             '
                             <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
                                     La tesis se ha guardado correctamente.
-                            <a href="../InicioEstu.html">
+                            <a href="../InicioEstu.php">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </a>
                                     </div>
