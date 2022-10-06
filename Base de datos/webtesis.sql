@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 08:04:09
+-- Tiempo de generación: 11-09-2022 a las 07:01:12
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -47,13 +47,6 @@ CREATE TABLE `estado` (
   `idTrabajoGrado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `estado`
---
-
-INSERT INTO `estado` (`idestado`, `estadoTrabajo`, `comentario`, `idTrabajoGrado`) VALUES
-(1, 'Aprobado', 'Felicitaciones', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -65,13 +58,6 @@ CREATE TABLE `estudiante` (
   `semestre` char(2) NOT NULL,
   `idpersona` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `estudiante`
---
-
-INSERT INTO `estudiante` (`codigoestudiante`, `semestre`, `idpersona`) VALUES
-(123649, '9', 4);
 
 -- --------------------------------------------------------
 
@@ -91,14 +77,6 @@ CREATE TABLE `persona` (
   `sexo` char(2) NOT NULL,
   `idrol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `persona`
---
-
-INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
-(1, 'Luz Idalia', 'Sanchez ', 'cc', '1234567890', '3116457912', 'luzidalia123@hotmail.com', 'Adminluz0123$', 'F', 1),
-(4, 'Gustavo Adolfo', 'Teran Muñoz', 'CC', '1197894863', '3117897777', 'gusteran@udenar.edu.co', '1234', 'M', 3);
 
 -- --------------------------------------------------------
 
@@ -156,13 +134,6 @@ CREATE TABLE `trabajogrado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `trabajogrado`
---
-
-INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`, `numedit`) VALUES
-(1, 'Java and C++', '2022-09-06', '../archivoTesis/Cronogram.pdf', 123649, 2, 1);
-
---
 -- Índices para tablas volcadas
 --
 
@@ -172,7 +143,7 @@ INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo
 ALTER TABLE `docente`
   ADD PRIMARY KEY (`iddocente`),
   ADD KEY `idpersona` (`idpersona`),
-  ADD KEY `idroldoc` (`idroldoc`);
+  ADD KEY `docente_ibfk_2` (`idroldoc`);
 
 --
 -- Indices de la tabla `estado`
@@ -222,19 +193,19 @@ ALTER TABLE `trabajogrado`
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idTrabajoGrado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -244,32 +215,31 @@ ALTER TABLE `trabajogrado`
 -- Filtros para la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD CONSTRAINT `docente_ibfk_3` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `docente_ibfk_4` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`),
+  ADD CONSTRAINT `docente_ibfk_2` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`);
 
 --
 -- Filtros para la tabla `estado`
 --
 ALTER TABLE `estado`
-  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idestado`) REFERENCES `trabajogrado` (`idTrabajoGrado`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`);
 
 --
 -- Filtros para la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`);
 
 --
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`);
 
 --
 -- Filtros para la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  ADD CONSTRAINT `trabajog_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON DELETE CASCADE,
   ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON UPDATE CASCADE;
 COMMIT;
 

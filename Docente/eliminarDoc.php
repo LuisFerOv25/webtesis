@@ -65,7 +65,7 @@ include "../complementos/conexion.php";
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active text-white" href="../Admin/InicioAdmi.html">Inicio</a>
+                <a class="nav-link active text-white" href="../Admin/InicioAdmi.php">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" href="../Admin/UsuariosAdmin.html">Usuarios</a>
@@ -120,7 +120,7 @@ include "../complementos/conexion.php";
                   <td> <?php echo $i; ?></td>
                   <td> <?php echo $nombre; ?></td>
                   <td> <?php echo $apellido; ?></td>
-                  <th><a href="eliminarCompleDoc.php?id=<?php echo $row['idpersona'] ?>" class="eliminar">Eliminar</a>
+                  <th><a href="eliminarCompleEstu.php?id=<?php echo $row['idpersona'] ?>" class="eliminar">Eliminar</a>
                   </th>
                 </tr>
                 <?php
@@ -159,7 +159,7 @@ include "../complementos/conexion.php";
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
-  <script src="../Admin/confirmacion.js"></script>
+
 </body>
 
 </html>
