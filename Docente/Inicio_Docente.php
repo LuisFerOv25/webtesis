@@ -107,12 +107,12 @@ while ($mostrar = mysqli_fetch_array($query_doc)) {
     </div>
     <br>
     <div class="card">
-      <h3 class="card-header text-center">Bienvenid@ <?php echo "$nombre"; ?> <?php echo "$apellido"; ?></h3>
+      <h3 class="card-header text-center">Bienvenido/a <?php echo "$nombre"; ?> <?php echo "$apellido"; ?></h3>
       <div class="card-body">
         <h5 class="card-title">Información</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque a itaque esse sit expedita
-          eius quos impedit commodi modi natus labore perferendis possimus, voluptatibus explicabo praesentium deleniti
-          assumenda! Sit, totam?</p>
+        <p class="card-text">Usted ha ingresado exitosamente al apartado de Docente,
+          en este modulo podrá observar los respectivos datos de los trabajo de grado de los estudiantes,  como el nombre del proyecto,el archivo, tiempo restante para calificarlo etc.
+          así mismo observará los estudiantes aprobados, como también si lo desea puede modificar sus datos personales.</p>
       </div>
     </div>
   </div>

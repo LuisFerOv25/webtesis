@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 20:49:31
+-- Tiempo de generación: 06-10-2022 a las 23:43:20
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -39,9 +39,7 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`iddocente`, `especialidad`, `idroldoc`, `idpersona`) VALUES
-(1234569, 'Analista de software experto', 2, 6),
-(12345678, 'Analista de Sistemas de Información ', 2, 2),
-(12345896, 'Analista de software experto', 1, 3);
+(1234569, 'Analista de software experto', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -113,8 +111,6 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
 (1, 'Luz', 'Sanchez', 'cc', '1234567890', '3116457912', 'luzidalia123@hotmail.com', '1234', 'F', 1),
-(2, 'Teofilo Anestecio', 'Davila Paspur', 'CC', '1234567899', '3116451111', 'teofilopaspur@udenar.edu.co', '1234', 'M', 2),
-(3, 'Fulvio Anastasio ', 'Huertas Canchala ', 'CC', '1234569843', '3145160459', 'fulvio19@udenar.edu.co', '1234', 'M', 2),
 (4, 'Gustavo Adol', 'Teran Muñoz', 'CC', '1197894863', '3117897777', 'gusteran@udenar.edu.co', '1234', 'M', 3),
 (5, 'Anyi Camila', 'Revelo Goyes', 'CC', '1236974620', '3159301111', 'camilarevelo69@udenar.edu.co', '1234', 'F', 3),
 (6, 'Arnoldo Dionicio ', 'Moreno Valbuena', 'CC', '1234567890', '3145650457', 'arnoldo19@gmail.com', '1234', 'M', 2),
@@ -193,8 +189,8 @@ INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo
 --
 ALTER TABLE `docente`
   ADD PRIMARY KEY (`iddocente`),
-  ADD KEY `idpersona` (`idpersona`),
-  ADD KEY `idroldoc` (`idroldoc`);
+  ADD KEY `idroldoc` (`idroldoc`),
+  ADD KEY `idpersona` (`idpersona`);
 
 --
 -- Indices de la tabla `estado`
@@ -266,32 +262,32 @@ ALTER TABLE `trabajogrado`
 -- Filtros para la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `docente_ibfk_2` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `docente_ibfk_2` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `estado`
 --
 ALTER TABLE `estado`
-  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
