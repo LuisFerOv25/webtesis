@@ -122,7 +122,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                 <tr>
                   <th><?php echo $row['trabajogrado'] ?></th>
                   <th><?php echo $row['archivo'] ?></th>
-                  <th></th>
+
                   <?php
                   if (!empty($docasign)) {
                     $query_docentea = mysqli_query(conexion(), "SELECT persona.nombre as nom,persona.apellido as ape FROM persona JOIN docente ON persona.idpersona = docente.idpersona WHERE persona.idpersona = $docasign");
@@ -137,7 +137,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                   <?php
                   }
                   ?>
-                  
+
                   <th>
                     <a href="../visualizar_tiemest.php">
                       <button type="button" class="btn btn-warning" href>Ver tiempo</button>
@@ -186,12 +186,37 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
             </tbody>
 
           </table>
+          <div class="text-center">
+            <h4>ASESOR ASIGNADO</h4>
+          </div>
 
+          <?php
+
+          $sql = 'SELECT * FROM persona INNER JOIN docente ON persona.idpersona=docente.idpersona
+              INNER JOIN roldocente ON docente.idroldoc= roldocente.idroldoc
+              WHERE roldocente.idroldoc = 2';
+          $query = mysqli_query($con, $sql);
+          while ($row = mysqli_fetch_array($query)) {
+            $nombre = $row['nombre'];
+            $apellido = $row['apellido'];
+          ?>
+
+          <?php
+          }
+
+          ?>
+        </div>
+        <div class="text-center">
+          <?php echo $nombre ?>
         </div>
 
       </div>
+
     </div>
-    <br>
+
+  </div>
+  </div>
+  <br>
   </div>
 
 

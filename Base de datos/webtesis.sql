@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 08:04:09
+-- Tiempo de generación: 06-10-2022 a las 20:49:31
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -34,6 +34,15 @@ CREATE TABLE `docente` (
   `idpersona` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `docente`
+--
+
+INSERT INTO `docente` (`iddocente`, `especialidad`, `idroldoc`, `idpersona`) VALUES
+(1234569, 'Analista de software experto', 2, 6),
+(12345678, 'Analista de Sistemas de Información ', 2, 2),
+(12345896, 'Analista de software experto', 1, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +61,11 @@ CREATE TABLE `estado` (
 --
 
 INSERT INTO `estado` (`idestado`, `estadoTrabajo`, `comentario`, `idTrabajoGrado`) VALUES
-(1, 'Aprobado', 'Felicitaciones', 1);
+(1, 'Aprobado', 'Felicitaciones', 1),
+(2, 'Aprobado', 'Corregir', 3),
+(3, 'No aprobado', 'Corregir ', 2),
+(4, 'No aprobado', 'no paso', 1),
+(5, 'No aprobado', 'noo', 1);
 
 -- --------------------------------------------------------
 
@@ -71,7 +84,9 @@ CREATE TABLE `estudiante` (
 --
 
 INSERT INTO `estudiante` (`codigoestudiante`, `semestre`, `idpersona`) VALUES
-(123649, '9', 4);
+(123456, '9', 7),
+(123649, '9', 4),
+(12364896, '9', 5);
 
 -- --------------------------------------------------------
 
@@ -97,8 +112,13 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
-(1, 'Luz Idalia', 'Sanchez ', 'cc', '1234567890', '3116457912', 'luzidalia123@hotmail.com', 'Adminluz0123$', 'F', 1),
-(4, 'Gustavo Adolfo', 'Teran Muñoz', 'CC', '1197894863', '3117897777', 'gusteran@udenar.edu.co', '1234', 'M', 3);
+(1, 'Luz', 'Sanchez', 'cc', '1234567890', '3116457912', 'luzidalia123@hotmail.com', '1234', 'F', 1),
+(2, 'Teofilo Anestecio', 'Davila Paspur', 'CC', '1234567899', '3116451111', 'teofilopaspur@udenar.edu.co', '1234', 'M', 2),
+(3, 'Fulvio Anastasio ', 'Huertas Canchala ', 'CC', '1234569843', '3145160459', 'fulvio19@udenar.edu.co', '1234', 'M', 2),
+(4, 'Gustavo Adol', 'Teran Muñoz', 'CC', '1197894863', '3117897777', 'gusteran@udenar.edu.co', '1234', 'M', 3),
+(5, 'Anyi Camila', 'Revelo Goyes', 'CC', '1236974620', '3159301111', 'camilarevelo69@udenar.edu.co', '1234', 'F', 3),
+(6, 'Arnoldo Dionicio ', 'Moreno Valbuena', 'CC', '1234567890', '3145650457', 'arnoldo19@gmail.com', '1234', 'M', 2),
+(7, 'Luis Fernando ', 'Oviedo Dominguez', 'CC', '119327863', '3159307970', 'luisfer78@udenar.edu.co', '1234', 'M', 3);
 
 -- --------------------------------------------------------
 
@@ -160,7 +180,9 @@ CREATE TABLE `trabajogrado` (
 --
 
 INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`, `numedit`) VALUES
-(1, 'Java and C++', '2022-09-06', '../archivoTesis/Cronogram.pdf', 123649, 2, 1);
+(1, 'computacion', '2022-09-06', '../Estudiante/archivoTesis/Aplicativo Cliente-Server.pdf', 123649, 2, 2),
+(2, 'Sistema distribuido', '2022-08-30', '../archivoTesis/Cronogram.pdf', 12364896, 3, 1),
+(3, 'Java y análisis de datos', '2022-08-31', '../archivoTesis/Cronogram.pdf', 123456, 2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -222,13 +244,13 @@ ALTER TABLE `trabajogrado`
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajogrado`
@@ -244,32 +266,31 @@ ALTER TABLE `trabajogrado`
 -- Filtros para la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD CONSTRAINT `docente_ibfk_3` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `docente_ibfk_4` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `docente_ibfk_2` FOREIGN KEY (`idroldoc`) REFERENCES `roldocente` (`idroldoc`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `estado`
 --
 ALTER TABLE `estado`
-  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idestado`) REFERENCES `trabajogrado` (`idTrabajoGrado`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `estado_ibfk_1` FOREIGN KEY (`idTrabajoGrado`) REFERENCES `trabajogrado` (`idTrabajoGrado`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `estudiante_ibfk_1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `persona_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `trabajogrado`
 --
 ALTER TABLE `trabajogrado`
-  ADD CONSTRAINT `trabajog_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON DELETE CASCADE,
   ADD CONSTRAINT `trabajogrado_ibfk_1` FOREIGN KEY (`codigoestudiante`) REFERENCES `estudiante` (`codigoestudiante`) ON UPDATE CASCADE;
 COMMIT;
 
