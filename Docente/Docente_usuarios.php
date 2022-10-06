@@ -113,6 +113,7 @@ $query = mysqli_query($con2, "SELECT
               <th>Nombre del proyecto</th>
               <th>Nombre del estudiante</th>
               <th>Archivo</th>
+              <th>Información Estudiante</th>
               <th>Tiempo restante para calificarlo</th>
               <th>Evalución</th>
             </tr>
@@ -128,6 +129,16 @@ $query = mysqli_query($con2, "SELECT
                   <th><?php echo $row['trabajogrado'] ?></th>
                   <th><?php echo $row['estudiante'] ?></th>
                   <th><?php echo $row['archivo'] ?></th>
+
+
+                  <th>
+                    <div class="center_Boton_Calificacion">
+                      <a href="EstudiantesAsig.php?idTrabajo=<?php echo $idT ?>">
+                        <button type="button" class="btn btn-success" href>Más</button>
+                    </div>
+                  </th>
+
+
                   <th>
                     <div class="center_Boton_Calificacion">
                       <a href="visualizar_tiemdoc.php">
