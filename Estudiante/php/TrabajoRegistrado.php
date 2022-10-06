@@ -107,6 +107,7 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                 <th>Nombre del proyecto</th>
                 <th>Archivo</th>
                 <th>Jurado asignado</th>
+                <th>Tiempo restante para calificarlo</th>
                 <th>Editar</th>
               </tr>
             </thead>
@@ -134,6 +135,11 @@ $query = mysqli_query($con2, "SELECT trabajogrado.idTrabajoGrado as idtr,trabajo
                   <?php
                   }
                   ?>
+                  <th>
+                  <a href="../visualizar_tiemest.php">
+                        <button type="button" class="btn btn-warning" href>Ver tiempo</button>
+                  </a>
+                </th>
                   <th>
                     <div class=" center_Boton_Calificacion">
                       <a href="../../Trabajo grado/modificar_trab.php?idt=<?php echo $idT ?>">

@@ -14,16 +14,21 @@ include "../complementos/conexion.php";
   <link rel="stylesheet" href="../css/style.css">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
   <script src='main.js'></script>
 
   <style>
-    body {
-      background-image: url(../img/font.png);
-      background-size: cover;
-    }
+  body {
+    background-image: url(../img/font.png);
+    background-size: cover;
+  }
   </style>
 
 </head>
@@ -35,12 +40,14 @@ include "../complementos/conexion.php";
       <div class="col ">
         <nav class="navbar navbar-dark bg-dark fixed-top">
           <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="btn-group">
-              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Sesión Administrador
               </button>
               <ul class="dropdown-menu">
@@ -49,24 +56,25 @@ include "../complementos/conexion.php";
             </div>
 
 
-            <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+              aria-labelledby="offcanvasDarkNavbarLabel">
               <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Administrador</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../Admin/InicioAdmi.php">Inicio</a>
+                    <a class="nav-link active text-white" href="InicioAdmi.php">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Admin/InicioAdmi.html">Usuarios</a>
+                    <a class="nav-link text-white" href="UsuariosAdmin.html">Usuarios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Admin/DatosAdm.html">Mis datos</a>
+                    <a class="nav-link text-white" href="misdatos.php">Mis datos</a>
                   </li>
                 </ul>
-
               </div>
             </div>
           </div>
@@ -80,7 +88,7 @@ include "../complementos/conexion.php";
 
     <div class="center_Calificación">
       <div class="card">
-        <h3 class="card-header text-center">Trabajos de grado registrados</h3>
+        <h3 class="card-header">Administradores registrados</h3>
         <div class="card-body">
 
           <div class="row mx-5">
@@ -88,8 +96,9 @@ include "../complementos/conexion.php";
             <table class="table table-bordered">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nombre del trabajo de grado</th>
-                <th scope="col">Modificar</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Eliminar</th>
               </tr>
 
               <tbody class="table-group-divider">
@@ -97,20 +106,25 @@ include "../complementos/conexion.php";
 
                 $con = conexion();
 
-                $sql = ("SELECT * FROM trabajogrado");
+                $sql = ("SELECT * FROM persona where idrol=1");// whre id rol =1 
                 $query = mysqli_query($con, $sql);
                 $i = 0;
 
                 while ($row = mysqli_fetch_array($query)) {
                   $i++;
-                  $idTrabajoGrado = $row['idTrabajoGrado'];
+                  $idTrabajoGrado = $row['idpersona'];
                   $nombre = $row['nombre'];
+                  $apellido = $row['apellido'];
+
                 ?>
-                  <tr>
-                    <td> <?php echo $i; ?></td>
-                    <td> <?php echo $nombre; ?></td>
-                    <th><a href="trabajoG.php?id=<?php echo $row['idTrabajoGrado'] ?>" class="btn btn-success">Editar</a></th>
-                  </tr>
+                <tr>
+                  <td> <?php echo $i; ?></td>
+                  <td> <?php echo $nombre; ?></td>
+                  <td> <?php echo $apellido; ?></td>
+                  <th><a href="eliminacionCompletaA.php?id=<?php echo $row['idpersona'] ?>"
+                      class="eliminar">Eliminar</a>
+                  </th>
+                </tr>
                 <?php
 
                 }
@@ -147,6 +161,8 @@ include "../complementos/conexion.php";
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
+  <script src="confirmacion.js"></script>
+
 
 </body>
 

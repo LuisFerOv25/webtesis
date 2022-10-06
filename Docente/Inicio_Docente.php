@@ -1,3 +1,21 @@
+
+<?php
+include "../complementos/conexion.php";
+session_start();
+$email = $_SESSION['email'];
+$con = conexion();
+
+$iddoc = mysqli_query($con, "SELECT persona.idpersona FROM persona
+    WHERE persona.correo = '$email'");
+$IdeDoc = mysqli_fetch_array($iddoc);
+
+$query_doc = mysqli_query($con, "SELECT * FROM persona JOIN docente ON persona.idpersona=docente.idpersona WHERE docente.idpersona=$IdeDoc[0]");
+while ($mostrar = mysqli_fetch_array($query_doc)) {
+  $nombre = $mostrar['nombre'];
+  $apellido = $mostrar['apellido'];
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -62,7 +80,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="Inicio_Docente.html">Inicio</a>
+                <a class="nav-link active" href="Inicio_Docente.php">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="perfildocente.php">Mis datos</a>
@@ -82,10 +100,6 @@
   </div>
 
 
-
-
-
-
   <div class="inicio_doc">
 
     <div class="text-center">
@@ -93,7 +107,7 @@
     </div>
     <br>
     <div class="card">
-      <h3 class="card-header">Bienvenid@</h3>
+      <h3 class="card-header text-center">Bienvenid@ <?php echo "$nombre"; ?> <?php echo "$apellido"; ?></h3>
       <div class="card-body">
         <h5 class="card-title">Información</h5>
         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque a itaque esse sit expedita

@@ -77,17 +77,17 @@ $query = mysqli_query($con2, "SELECT
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" href="../Docente/Inicio_Docente.html">Inicio</a>
+                <a class="nav-link active" href="Inicio_Docente.php">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Docente/perfildocente.php">Mis datos</a>
+                <a class="nav-link" href="perfildocente.php">Mis datos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Docente/Docente_usuarios.php">Proyecto de grado</a>
+                <a class="nav-link" href="Docente_usuarios.php">Proyecto de grado</a>
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./EstadoAprobacionEst.php">Estado de aprobación estudiantes</a>
+                <a class="nav-link" href="../EstadoAprobacionEst.php">Estado de aprobación estudiantes</a>
               </li>
             </ul>
           </div>
@@ -100,7 +100,7 @@ $query = mysqli_query($con2, "SELECT
   <div class="center_Calificación">
     <div class="card">
 
-      <h3 class="card-header">Trabajos de grado</h3>
+      <h3 class="card-header">Datos del Trabajo de grado</h3>
       <div class="card-body">
       </div>
 
@@ -113,7 +113,7 @@ $query = mysqli_query($con2, "SELECT
               <th>Nombre del proyecto</th>
               <th>Nombre del estudiante</th>
               <th>Archivo</th>
-              <th>Información del estudiante</th>
+              <th>Tiempo restante para calificarlo</th>
               <th>Evalución</th>
             </tr>
 
@@ -128,14 +128,13 @@ $query = mysqli_query($con2, "SELECT
                   <th><?php echo $row['trabajogrado'] ?></th>
                   <th><?php echo $row['estudiante'] ?></th>
                   <th><?php echo $row['archivo'] ?></th>
-
                   <th>
                     <div class="center_Boton_Calificacion">
-                      <a href="../EstudiantesAsig.php?idTrabajo=<?php echo $idT ?>">
-                        <button type="button" class="btn btn-success" href>Más</button>
+                      <a href="visualizar_tiemdoc.php">
+                        <button type="button" class="btn btn-warning" href>Ver tiempo</button>
+                      </a>
                     </div>
                   </th>
-
                   <th>
                     <div class="center_Boton_Calificacion">
                       <a href="../Trabajo grado/Calificar_Trabajo.php?idTrabajo=<?php echo $idT ?>">
