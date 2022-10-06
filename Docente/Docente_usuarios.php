@@ -123,7 +123,7 @@ $query = mysqli_query($con2, "SELECT
               <th>Archivo</th>
               <th>Información Estudiante</th>
               <th>Tiempo restante para calificarlo</th>
-              <th>Evalución</th>
+              <th>Evaluación</th>
             </tr>
 
             <tbody class="table-group-divider">
