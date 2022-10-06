@@ -159,6 +159,8 @@ include "../complementos/conexion.php";
     <p>2022 © Webtesis UDENAR | Pasto, Nariño - Colombia</p>
 
   </div>
+  <script src="../Admin/confirmacion.js"></script>
+
 
 </body>
 
