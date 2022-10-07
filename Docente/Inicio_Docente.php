@@ -27,6 +27,7 @@ while ($mostrar = mysqli_fetch_array($query_doc)) {
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/x-icon" href="../img/icon.png">
+  <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
@@ -103,7 +104,9 @@ while ($mostrar = mysqli_fetch_array($query_doc)) {
   <div class="inicio_doc">
 
     <div class="text-center">
-      <img src="../img/usuario.png" class="img_usr" alt="img perfil docente">
+      <div class="shake-slow">
+        <img src="../img/usuario.png" class="img_usr" alt="img perfil docente">
+      </div>
     </div>
     <br>
     <div class="card">

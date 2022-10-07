@@ -32,7 +32,7 @@ while ($mostrar = mysqli_fetch_array($query_admin)) {
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
@@ -96,10 +96,11 @@ while ($mostrar = mysqli_fetch_array($query_admin)) {
 
 
   <div class="inicio_adm">
-
+  <div class="shake-slow">
     <div class="text-center">
       <img src="../img/usuario.png" class="img_usr" alt="img perfil docente">
     </div>
+  </div>
     <br>
 
     <div class="card">
