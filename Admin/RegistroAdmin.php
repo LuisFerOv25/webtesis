@@ -14,11 +14,11 @@ if (!empty($_POST)) {
     $nombre = $_POST['nombre'];//nombre 
     $apellido = $_POST['apellido'];//apellido
     $tipoide = $_POST['tipoide'];//tipoide
-    $numdoc = $_POST['numdoc'];
-    $sexo = $_POST['sexo'];
-    $celular = $_POST['celular'];
-    $correo = $_POST['correo'];
-    $pass = ($_POST['pass']);
+    $numdoc = $_POST['numdoc'];//numdocumento
+    $sexo = $_POST['sexo'];//sexo
+    $celular = $_POST['celular'];//cedula
+    $correo = $_POST['correo'];//correo
+    $pass = ($_POST['pass']);//contresela
 
     if ($_POST['pass'] != $_POST['confpass']) {
 
