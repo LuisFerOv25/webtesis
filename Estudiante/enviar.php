@@ -82,7 +82,8 @@ $bodyHTML = '
         </nav>
 
     </div>
-    <div class="container text-center py-5">
+    <div class="container text-center py-5 my-5">
+    <h3 class="text-center ">Notificacion de credenciales via correo electronico</h3>
         <form action="" method="POST">
             <div class="row align-items-center py-5 mx-5">
                 <div class="col">

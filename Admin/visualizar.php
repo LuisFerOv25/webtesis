@@ -87,7 +87,7 @@ include "../complementos/conexion.php";
   <form method="post" action="Calificar_Trabajo.php">
 
     <div class="center_Calificación">
-      <div class="card">
+      <div class="card text-center">
         <h3 class="card-header">Administradores registrados</h3>
         <div class="card-body">
 
