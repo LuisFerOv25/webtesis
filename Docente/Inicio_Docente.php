@@ -114,7 +114,7 @@ while ($mostrar = mysqli_fetch_array($query_doc)) {
       <div class="card-body">
         <h5 class="card-title">Información</h5>
         <p class="card-text">Usted ha ingresado exitosamente al apartado de Docente,
-          en este modulo podrá observar los respectivos datos de los trabajo de grado de los estudiantes,  como el nombre del proyecto,el archivo, tiempo restante para calificarlo etc.
+          en este módulo podrá observar los respectivos datos de los trabajo de grado de los estudiantes,  como el nombre del proyecto,el archivo, tiempo restante para calificarlo etc.
           así mismo observará los estudiantes aprobados, como también si lo desea puede modificar sus datos personales.</p>
       </div>
     </div>

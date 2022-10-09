@@ -110,8 +110,8 @@ while ($mostrar = mysqli_fetch_array($query_estu)) {
       <div class="card-body">
         <h5 class="card-title">Información:</h5>
         <p class="card-text">Usted ha ingresado exitosamente al apartado de estudiante,
-          en este modulo posee el control para administrar el trabajo de grado que registró en la plataforma
-          así como modificar su información personal segun sea el caso.</p>
+          en este módulo posee el control para administrar el trabajo de grado que registró en la plataforma
+          así como modificar su información personal según sea el caso.</p>
       </div>
     </div>
   </div>

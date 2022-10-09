@@ -108,8 +108,8 @@ while ($mostrar = mysqli_fetch_array($query_admin)) {
       <div class="card-body">
         <h5 class="card-title">Información</h5>
         <p class="card-text">Usted ha ingresado exitosamente al apartado del administrador,
-          en este modulo posee control total para la gestion de usuarios tales como docentes, estudiantes
-          y administradores, asi como la gestion del trabajo de grado registrado por el estudiante.</p>
+          en este modulo posee control total para la gestión de usuarios tales como docentes, estudiantes
+          y administradores, asi como la gestión del trabajo de grado registrado por el estudiante.</p>
       </div>
     </div>
   </div>
