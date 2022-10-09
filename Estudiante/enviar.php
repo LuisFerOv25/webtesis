@@ -90,7 +90,7 @@ $bodyHTML = '
                     <div class="mb-3">
                         <label for="correo" class="form-label">Direccion de correo</label>
                         <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">Ingrese un correo valido.</div>
+                        <div id="emailHelp" class="form-text">Ingrese un correo gmail valido.</div>
                     </div>
                 </div>
             </div>
