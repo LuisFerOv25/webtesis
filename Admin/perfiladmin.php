@@ -29,7 +29,7 @@ if (isset($_POST['btnmodificar'])) {
 ?>
 
 <script>
-alert("Datos modificados exitosamente")
+alert("Datos Modificados Exitosamente")
 </script>
 <?php
   } else {
