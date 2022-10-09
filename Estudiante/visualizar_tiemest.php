@@ -84,7 +84,7 @@
             <div class="col-md-12 mt-40">
                 <div class="card" style="height: 400px;">
                     <div class="card-header text-white text-center bg-success">
-                        <h2>El tiempo restante para recibir respuesta es:</h2>     
+                        <h2>El tiempo restante para corregir el trabajo es:</h2>     
                     </div>
                     <div class="card-body pt-5">
                         <h1 id="contador" class="text-center mt-5 m-auto p-3 text-white"></h1>

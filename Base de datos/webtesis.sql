@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2022 a las 23:43:20
+-- Tiempo de generación: 07-10-2022 a las 06:23:51
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -39,7 +39,8 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`iddocente`, `especialidad`, `idroldoc`, `idpersona`) VALUES
-(1234569, 'Analista de software experto', 2, 6);
+(1234569, 'Analista de software experto', 2, 6),
+(2167567, 'Analista de redes', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -110,11 +111,12 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `nombre`, `apellido`, `tipoide`, `numdoc`, `celular`, `correo`, `pass`, `sexo`, `idrol`) VALUES
-(1, 'Luz', 'Sanchez', 'cc', '1234567890', '3116457912', 'luzidalia123@hotmail.com', '1234', 'F', 1),
+(1, 'Luz', 'Sanchez', 'cc', '1234567890', '3116457912', 'luzidalia123@hotmail.com', '4321', 'F', 1),
 (4, 'Gustavo Adol', 'Teran Muñoz', 'CC', '1197894863', '3117897777', 'gusteran@udenar.edu.co', '1234', 'M', 3),
-(5, 'Anyi Camila', 'Revelo Goyes', 'CC', '1236974620', '3159301111', 'camilarevelo69@udenar.edu.co', '1234', 'F', 3),
+(5, 'Anyi Camila', 'Revelo Goyes', 'CC', '1236974620', '3159301111', 'camilarevelo69@udenar.edu.co', '4321', 'F', 3),
 (6, 'Arnoldo Dionicio ', 'Moreno Valbuena', 'CC', '1234567890', '3145650457', 'arnoldo19@gmail.com', '1234', 'M', 2),
-(7, 'Luis Fernando ', 'Oviedo Dominguez', 'CC', '119327863', '3159307970', 'luisfer78@udenar.edu.co', '1234', 'M', 3);
+(7, 'Luis Fernando ', 'Oviedo Dominguez', 'CC', '119327863', '3159307970', 'luisfer78@udenar.edu.co', '1234', 'M', 3),
+(8, 'Carlos', 'Pizarro', 'CC', '1098678000', '3215678976', 'CarlosPizarro56@gmail.com', '1234', 'M', 2);
 
 -- --------------------------------------------------------
 
@@ -178,7 +180,7 @@ CREATE TABLE `trabajogrado` (
 INSERT INTO `trabajogrado` (`idTrabajoGrado`, `nombre`, `fechacar`, `rutaArchivo`, `codigoestudiante`, `docasig`, `numedit`) VALUES
 (1, 'computacion', '2022-09-06', '../Estudiante/archivoTesis/Aplicativo Cliente-Server.pdf', 123649, 2, 2),
 (2, 'Sistema distribuido', '2022-08-30', '../archivoTesis/Cronogram.pdf', 12364896, 3, 1),
-(3, 'Java y análisis de datos', '2022-08-31', '../archivoTesis/Cronogram.pdf', 123456, 2, 1);
+(3, 'Java y análisis de datos', '2022-08-31', '../archivoTesis/Cronogram.pdf', 123456, 8, 1);
 
 --
 -- Índices para tablas volcadas
@@ -246,7 +248,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajogrado`
