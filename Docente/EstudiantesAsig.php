@@ -40,15 +40,20 @@ $query = mysqli_query($con2, "SELECT
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/x-icon" href="../img/icon.png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+  </script>
   <script src='main.js'></script>
   <style>
-    body {
-      background-image: url(../img/font.png);
-      background-size: cover;
-    }
+  body {
+    background-image: url(../img/font.png);
+    background-size: cover;
+  }
   </style>
 
 </head>
@@ -59,7 +64,8 @@ $query = mysqli_query($con2, "SELECT
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -73,10 +79,12 @@ $query = mysqli_query($con2, "SELECT
           </ul>
         </div>
 
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Docente</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
           </div>
 
           <div class="offcanvas-body">
@@ -121,17 +129,17 @@ $query = mysqli_query($con2, "SELECT
           <?php
           while ($row = mysqli_fetch_array($query)) {
           ?>
-            <tr>
-              <th><?php echo $row['nomEstudiante'] ?>
-                <?php echo $row['apellEstudiante'] ?>
-              </th>
-              <th><?php echo $row['idllEstudiante'] ?></th>
-              <th><?php echo $row['docEstudiante'] ?></th>
-              <th><?php echo $row['celEstudiante'] ?></th>
-              <th><?php echo $row['emailEstudiante'] ?></th>
-              <th><?php echo $row['codEstudiante'] ?></th>
-              <th><?php echo $row['semEstudiante'] ?></th>
-            </tr>
+          <tr>
+            <th><?php echo $row['nomEstudiante'] ?>
+              <?php echo $row['apellEstudiante'] ?>
+            </th>
+            <th><?php echo $row['idllEstudiante'] ?></th>
+            <th><?php echo $row['docEstudiante'] ?></th>
+            <th><?php echo $row['celEstudiante'] ?></th>
+            <th><?php echo $row['emailEstudiante'] ?></th>
+            <th><?php echo $row['codEstudiante'] ?></th>
+            <th><?php echo $row['semEstudiante'] ?></th>
+          </tr>
 
           <?php
           }
